@@ -25,7 +25,18 @@ namespace FindMyColor_m
 
         private void init()
         {
-            this.Size = skinImage.Size;
+            //만약 사진 크기가 현재 해상도보다 클 경우
+            if(skinImage.Width >= Screen.PrimaryScreen.Bounds.Width || 
+                skinImage.Height >= Screen.PrimaryScreen.Bounds.Height)
+            {
+                //현재 해상도의 최대값-100px한 것을 Maximumsize로 설정함
+                this.MaximumSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width-100, Screen.PrimaryScreen.Bounds.Height-100);
+                this.Size = MaximumSize;
+            }
+            else
+            {
+                this.Size = skinImage.Size;
+            }
             pictureBox1.Size = skinImage.Size;
             pictureBox1.Image = skinImage;
         }

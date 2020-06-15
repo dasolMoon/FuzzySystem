@@ -36,8 +36,11 @@ namespace FindMyColor_m
             labelG.Text = "" + skinColor.G;
             labelB.Text = "" + skinColor.B;
 
-            //labelC.Text = "" + skinColor.C
-
+            double[] tempRgb = RgbToCmyk(skinColor);
+            labelC.Text = "" + tempRgb[0] + "%"; //cyan
+            labelM.Text = "" + tempRgb[1] + "%"; //magenta
+            labelY.Text = "" + tempRgb[2] + "%"; //yellow
+            labelK.Text = "" + tempRgb[3] + "%"; //black
 
         }
 
@@ -49,6 +52,34 @@ namespace FindMyColor_m
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private double[] RgbToCmyk(Color color)
+        {
+            byte red = color.R;
+            byte green = color.G;
+            byte blue = color.B;
+
+            double black = Math.Min(1.0 - red / 255.0, Math.Min(1.0 - green / 255.0, 1.0 - blue / 255.0)) * 10;
+            double cyan = (1.0 - (red / 255.0) - black) / (1.0 - black) * 10;
+            double magenta = (1.0 - (green / 255.0) - black) / (1.0 - black) * 10;
+            double yellow = (1.0 - (blue / 255.0) - black) / (1.0 - black) * 10;
+
+            return new[] { cyan, magenta, yellow, black };
+        }
+
+        private Color CmykToRgb(double cyan, double magenta, double yellow, double black) //CMYK TO RGB
+        {
+            byte red = Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255);
+            byte green = Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255);
+            byte blue = Convert.ToByte((1 - Math.Min(1, yellow * (1 - black) + black)) * 255);
+            /*
+                        Color tempColor = Color.FromArgb(Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255),
+                        Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255),
+                        Convert.ToByte((1 - Math.Min(1, yellow * (1 - black) + black)) * 255));
+            */
+
+            return Color.FromArgb(red, green, blue);
         }
     }
 }
