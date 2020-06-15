@@ -74,6 +74,8 @@
             this.labelH = new System.Windows.Forms.Label();
             this.labelV = new System.Windows.Forms.Label();
             this.labelS = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.labelHex = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -171,7 +173,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 9);
+            this.label1.Location = new System.Drawing.Point(21, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 12);
             this.label1.TabIndex = 2;
@@ -311,7 +313,7 @@
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Location = new System.Drawing.Point(29, 154);
+            this.pictureBox20.Location = new System.Drawing.Point(23, 138);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(198, 308);
             this.pictureBox20.TabIndex = 0;
@@ -377,10 +379,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("G마켓 산스 TTF Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(387, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 75);
+            this.label2.Size = new System.Drawing.Size(32, 75);
             this.label2.TabIndex = 3;
             this.label2.Text = "R : \r\n\r\nG :\r\n\r\nB :";
             // 
@@ -417,10 +419,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Font = new System.Drawing.Font("G마켓 산스 TTF Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.Location = new System.Drawing.Point(463, 41);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 105);
+            this.label7.Size = new System.Drawing.Size(30, 105);
             this.label7.TabIndex = 3;
             this.label7.Text = "C :\r\n\r\nM :\r\n\r\nY :\r\n\r\nK :";
             // 
@@ -467,10 +469,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Font = new System.Drawing.Font("G마켓 산스 TTF Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label8.Location = new System.Drawing.Point(556, 41);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 75);
+            this.label8.Size = new System.Drawing.Size(28, 75);
             this.label8.TabIndex = 3;
             this.label8.Text = "H :\r\n\r\nS :\r\n\r\nV :";
             // 
@@ -504,6 +506,26 @@
             this.labelS.TabIndex = 3;
             this.labelS.Text = "100 %";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("G마켓 산스 TTF Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(309, 131);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 15);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "HEX : ";
+            // 
+            // labelHex
+            // 
+            this.labelHex.AutoSize = true;
+            this.labelHex.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelHex.Location = new System.Drawing.Point(352, 131);
+            this.labelHex.Name = "labelHex";
+            this.labelHex.Size = new System.Drawing.Size(46, 15);
+            this.labelHex.TabIndex = 3;
+            this.labelHex.Text = "#ffffff";
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -514,10 +536,12 @@
             this.Controls.Add(this.labelS);
             this.Controls.Add(this.labelM);
             this.Controls.Add(this.labelK);
+            this.Controls.Add(this.labelHex);
             this.Controls.Add(this.labelV);
             this.Controls.Add(this.labelY);
             this.Controls.Add(this.labelH);
             this.Controls.Add(this.labelC);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.labelR);
             this.Controls.Add(this.label7);
@@ -639,5 +663,7 @@
         private System.Windows.Forms.Label labelH;
         private System.Windows.Forms.Label labelV;
         private System.Windows.Forms.Label labelS;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelHex;
     }
 }

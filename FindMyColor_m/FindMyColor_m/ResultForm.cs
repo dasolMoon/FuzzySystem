@@ -13,10 +13,15 @@ namespace FindMyColor_m
     {
         SetForm setForm = null;
 
-        //색상
+        //색상 
+        Color skinColor = Color.Empty;
         double[] skinColor_cmyk = null;
         double[] skinColor_hvs = null;
-        Color skinColor = Color.Empty;
+        string skinColor_hex = null;
+
+        //추천
+
+
 
         public ResultForm(SetForm setForm)
         {
@@ -51,10 +56,14 @@ namespace FindMyColor_m
             labelK.Text = "" + (skinColor_cmyk[3] * 100).ToString("F0") + "%"; //black *100
 
             //HSV
-            skinColor_hvs = RgbtoHsv(skinColor);
+            skinColor_hvs = RgbToHsv(skinColor);
             labelH.Text = "" + skinColor_hvs[0].ToString("F0") + "º"; //H
             labelS.Text = "" + (skinColor_hvs[1] * 100).ToString("F0") + "%"; //S *100
             labelV.Text = "" + (skinColor_hvs[2] * 100).ToString("F0") + "%"; //V *100
+
+            //HEX
+            skinColor_hex = RgbToHex(skinColor);
+            labelHex.Text = "#" + skinColor_hex;
 
         }
 
@@ -68,7 +77,7 @@ namespace FindMyColor_m
             this.Close();
         }
 
-        private double[] RgbToCmyk(Color color)
+        private double[] RgbToCmyk(Color color) // RGB TO CMYK
         {
             byte red = color.R;
             byte green = color.G;
@@ -87,12 +96,16 @@ namespace FindMyColor_m
                 {
                     temp[i] = 0;
                 }
+                else if (temp[i] > 100)
+                {
+                    temp[i] = 100;
+                }
             }
 
             return temp;
         }
 
-        private Color CmykToRgb(double cyan, double magenta, double yellow, double black) //CMYK TO RGB
+        private Color CmykToRgb(double cyan, double magenta, double yellow, double black) // CMYK TO RGB
         {
             byte red = Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255);
             byte green = Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255);
@@ -106,7 +119,7 @@ namespace FindMyColor_m
             return Color.FromArgb(red, green, blue);
         }
 
-        private double[] RgbtoHsv(Color color)
+        private double[] RgbToHsv(Color color) // RGB TO HSV
         {
             double hue = color.GetHue();
             //double saturation = color.GetSaturation();
@@ -124,9 +137,45 @@ namespace FindMyColor_m
                 {
                     temp[i] = 0;
                 }
+                else if (temp[i] > 100)
+                {
+                    temp[i] = 100;
+                }
             }
 
             return temp;
         }
+
+        private Color ColorFromHSV(double hue, double saturation, double value) // HSV TO RGB
+        {
+            int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
+            double f = hue / 60 - Math.Floor(hue / 60);
+
+            value = value * 255;
+            int v = Convert.ToInt32(value);
+            int p = Convert.ToInt32(value * (1 - saturation));
+            int q = Convert.ToInt32(value * (1 - f * saturation));
+            int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
+
+            if (hi == 0)
+                return Color.FromArgb(v, t, p);
+            else if (hi == 1)
+                return Color.FromArgb(q, v, p);
+            else if (hi == 2)
+                return Color.FromArgb(p, v, t);
+            else if (hi == 3)
+                return Color.FromArgb(p, q, v);
+            else if (hi == 4)
+                return Color.FromArgb(t, p, v);
+            else
+                return Color.FromArgb(v, p, q);
+        }
+
+        private string RgbToHex(Color color)
+        {
+            return color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
+        }
+
+
     }
 }
