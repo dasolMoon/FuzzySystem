@@ -64,6 +64,12 @@
     <Compile Include="SetForm.Designer.cs">
       <DependentUpon>SetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SkinPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkinPickerForm.Designer.cs">
+      <DependentUpon>SkinPickerForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SetForm.resx">
       <DependentUpon>SetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinPickerForm.resx">
+      <DependentUpon>SkinPickerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

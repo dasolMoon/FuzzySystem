@@ -12,6 +12,7 @@ namespace FindMyColor_m
     public partial class SetForm : Form
     {
         MainForm mainForm = null;
+        Color skinColor = Color.Black;
         public SetForm(MainForm mainForm)
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace FindMyColor_m
 
         private void button2_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "이미지 파일|*.jpg|이미지파일|*.png|모든파일|*.*";
+            openFileDialog1.Filter = "이미지 파일(*.jpg)|*.jpg|이미지파일(*.png)|*.png|모든파일|*.*";
             openFileDialog1.Title = "이미지 열기";
             openFileDialog1.FileName = "";
             openFileDialog1.InitialDirectory = @"C\"; //초기 위치를 C드라이브로 설정 
@@ -41,6 +42,7 @@ namespace FindMyColor_m
             {
                 //MessageBox.Show(openFileDialog1.FileName);
                 pictureBox1.Image = new Bitmap(openFileDialog1.FileName);
+                
 
                 //버튼 관리
                 btnPicture.Visible = false;
@@ -52,6 +54,7 @@ namespace FindMyColor_m
         private void btnRe_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = null;
+            pictureBox2.Image = null;
             btnPicture.Visible = true;
             btnRe.Visible = false;
             btnSkin.Enabled = false;
@@ -61,12 +64,24 @@ namespace FindMyColor_m
         private void btnSkin_Click(object sender, EventArgs e)
         {
             btnResult.Enabled = true;
-            btnSkin.Enabled = false;
+            //btnSkin.Enabled = false;
+
+            SkinPickerForm skinPickerForm = new SkinPickerForm(this);
+            skinPickerForm.Show();
+            this.Visible = false;
         }
 
         private void btnResult_Click(object sender, EventArgs e)
         {
+            //여기서 Fcm실행?
+        }
 
+
+        public void SetSkinColor(Color color)
+        {
+            skinColor = color;
+            pictureBox2.BackColor = color;
+            this.Visible = true;
         }
     }
 }

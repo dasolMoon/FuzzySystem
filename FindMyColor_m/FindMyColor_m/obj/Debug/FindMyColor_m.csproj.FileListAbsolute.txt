@@ -16,3 +16,5 @@ D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.SetFo
 D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.csproj.GenerateResource.cache
 D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.exe
 D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.pdb
+D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.SkinPickerForm.resources
+D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.csproj.CoreCompileInputs.cache
