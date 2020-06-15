@@ -70,6 +70,10 @@
             this.labelY = new System.Windows.Forms.Label();
             this.labelM = new System.Windows.Forms.Label();
             this.labelK = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.labelH = new System.Windows.Forms.Label();
+            this.labelV = new System.Windows.Forms.Label();
+            this.labelS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -426,9 +430,9 @@
             this.labelC.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.labelC.Location = new System.Drawing.Point(495, 42);
             this.labelC.Name = "labelC";
-            this.labelC.Size = new System.Drawing.Size(31, 15);
+            this.labelC.Size = new System.Drawing.Size(48, 15);
             this.labelC.TabIndex = 3;
-            this.labelC.Text = "255";
+            this.labelC.Text = "100 %";
             // 
             // labelY
             // 
@@ -436,9 +440,9 @@
             this.labelY.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.labelY.Location = new System.Drawing.Point(495, 101);
             this.labelY.Name = "labelY";
-            this.labelY.Size = new System.Drawing.Size(31, 15);
+            this.labelY.Size = new System.Drawing.Size(48, 15);
             this.labelY.TabIndex = 3;
-            this.labelY.Text = "255";
+            this.labelY.Text = "100 %";
             // 
             // labelM
             // 
@@ -446,9 +450,9 @@
             this.labelM.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.labelM.Location = new System.Drawing.Point(494, 71);
             this.labelM.Name = "labelM";
-            this.labelM.Size = new System.Drawing.Size(31, 15);
+            this.labelM.Size = new System.Drawing.Size(48, 15);
             this.labelM.TabIndex = 3;
-            this.labelM.Text = "255";
+            this.labelM.Text = "100 %";
             // 
             // labelK
             // 
@@ -456,9 +460,49 @@
             this.labelK.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.labelK.Location = new System.Drawing.Point(494, 131);
             this.labelK.Name = "labelK";
-            this.labelK.Size = new System.Drawing.Size(31, 15);
+            this.labelK.Size = new System.Drawing.Size(48, 15);
             this.labelK.TabIndex = 3;
-            this.labelK.Text = "255";
+            this.labelK.Text = "100 %";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(556, 41);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(25, 75);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "H :\r\n\r\nS :\r\n\r\nV :";
+            // 
+            // labelH
+            // 
+            this.labelH.AutoSize = true;
+            this.labelH.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelH.Location = new System.Drawing.Point(588, 42);
+            this.labelH.Name = "labelH";
+            this.labelH.Size = new System.Drawing.Size(41, 15);
+            this.labelH.TabIndex = 3;
+            this.labelH.Text = "100 º";
+            // 
+            // labelV
+            // 
+            this.labelV.AutoSize = true;
+            this.labelV.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelV.Location = new System.Drawing.Point(588, 101);
+            this.labelV.Name = "labelV";
+            this.labelV.Size = new System.Drawing.Size(48, 15);
+            this.labelV.TabIndex = 3;
+            this.labelV.Text = "100 %";
+            // 
+            // labelS
+            // 
+            this.labelS.AutoSize = true;
+            this.labelS.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelS.Location = new System.Drawing.Point(587, 71);
+            this.labelS.Name = "labelS";
+            this.labelS.Size = new System.Drawing.Size(48, 15);
+            this.labelS.TabIndex = 3;
+            this.labelS.Text = "100 %";
             // 
             // ResultForm
             // 
@@ -467,10 +511,14 @@
             this.ClientSize = new System.Drawing.Size(810, 478);
             this.Controls.Add(this.labelB);
             this.Controls.Add(this.labelG);
+            this.Controls.Add(this.labelS);
             this.Controls.Add(this.labelM);
             this.Controls.Add(this.labelK);
+            this.Controls.Add(this.labelV);
             this.Controls.Add(this.labelY);
+            this.Controls.Add(this.labelH);
             this.Controls.Add(this.labelC);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.labelR);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
@@ -587,5 +635,9 @@
         private System.Windows.Forms.Label labelY;
         private System.Windows.Forms.Label labelM;
         private System.Windows.Forms.Label labelK;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelH;
+        private System.Windows.Forms.Label labelV;
+        private System.Windows.Forms.Label labelS;
     }
 }
