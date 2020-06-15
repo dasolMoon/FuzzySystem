@@ -65,6 +65,11 @@
             this.labelR = new System.Windows.Forms.Label();
             this.labelG = new System.Windows.Forms.Label();
             this.labelB = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelC = new System.Windows.Forms.Label();
+            this.labelY = new System.Windows.Forms.Label();
+            this.labelM = new System.Windows.Forms.Label();
+            this.labelK = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -405,6 +410,56 @@
             this.labelB.TabIndex = 3;
             this.labelB.Text = "255";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(463, 41);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 105);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "C :\r\n\r\nM :\r\n\r\nY :\r\n\r\nK :";
+            // 
+            // labelC
+            // 
+            this.labelC.AutoSize = true;
+            this.labelC.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelC.Location = new System.Drawing.Point(495, 42);
+            this.labelC.Name = "labelC";
+            this.labelC.Size = new System.Drawing.Size(31, 15);
+            this.labelC.TabIndex = 3;
+            this.labelC.Text = "255";
+            // 
+            // labelY
+            // 
+            this.labelY.AutoSize = true;
+            this.labelY.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelY.Location = new System.Drawing.Point(495, 101);
+            this.labelY.Name = "labelY";
+            this.labelY.Size = new System.Drawing.Size(31, 15);
+            this.labelY.TabIndex = 3;
+            this.labelY.Text = "255";
+            // 
+            // labelM
+            // 
+            this.labelM.AutoSize = true;
+            this.labelM.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelM.Location = new System.Drawing.Point(494, 71);
+            this.labelM.Name = "labelM";
+            this.labelM.Size = new System.Drawing.Size(31, 15);
+            this.labelM.TabIndex = 3;
+            this.labelM.Text = "255";
+            // 
+            // labelK
+            // 
+            this.labelK.AutoSize = true;
+            this.labelK.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelK.Location = new System.Drawing.Point(494, 131);
+            this.labelK.Name = "labelK";
+            this.labelK.Size = new System.Drawing.Size(31, 15);
+            this.labelK.TabIndex = 3;
+            this.labelK.Text = "255";
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -412,7 +467,12 @@
             this.ClientSize = new System.Drawing.Size(810, 478);
             this.Controls.Add(this.labelB);
             this.Controls.Add(this.labelG);
+            this.Controls.Add(this.labelM);
+            this.Controls.Add(this.labelK);
+            this.Controls.Add(this.labelY);
+            this.Controls.Add(this.labelC);
             this.Controls.Add(this.labelR);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -522,5 +582,10 @@
         private System.Windows.Forms.Label labelR;
         private System.Windows.Forms.Label labelG;
         private System.Windows.Forms.Label labelB;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelC;
+        private System.Windows.Forms.Label labelY;
+        private System.Windows.Forms.Label labelM;
+        private System.Windows.Forms.Label labelK;
     }
 }

@@ -36,6 +36,8 @@ namespace FindMyColor_m
             labelG.Text = "" + skinColor.G;
             labelB.Text = "" + skinColor.B;
 
+            //labelC.Text = "" + skinColor.C
+
 
         }
 
