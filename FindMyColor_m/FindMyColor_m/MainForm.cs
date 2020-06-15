@@ -31,5 +31,11 @@ namespace FindMyColor_m
         {
             this.Visible = true;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Github주소 복사 완료 \nSNS로 나의 색 찾기 프로그램을 공유해보세요 ! ", "Github주소 복사", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            System.Windows.Forms.Clipboard.SetText("https://github.com/dasolMoon/FuzzySystem.git");
+        }
     }
 }

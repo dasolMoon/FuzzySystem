@@ -30,10 +30,11 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnResult = new System.Windows.Forms.Button();
+            this.btnPicture = new System.Windows.Forms.Button();
+            this.btnRe = new System.Windows.Forms.Button();
+            this.btnSkin = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +43,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(14, 72);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(231, 275);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -54,51 +56,62 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "사진을 업로드하여 나의 피부색을 알아보세요 ~ ";
             // 
-            // button1
+            // btnResult
             // 
-            this.button1.Location = new System.Drawing.Point(276, 239);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 66);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "결과 보기";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnResult.Enabled = false;
+            this.btnResult.Location = new System.Drawing.Point(276, 239);
+            this.btnResult.Name = "btnResult";
+            this.btnResult.Size = new System.Drawing.Size(145, 66);
+            this.btnResult.TabIndex = 2;
+            this.btnResult.Text = "결과 보기";
+            this.btnResult.UseVisualStyleBackColor = true;
+            this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
             // 
-            // button2
+            // btnPicture
             // 
-            this.button2.Location = new System.Drawing.Point(84, 195);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "사진불러오기";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPicture.Location = new System.Drawing.Point(84, 195);
+            this.btnPicture.Name = "btnPicture";
+            this.btnPicture.Size = new System.Drawing.Size(89, 23);
+            this.btnPicture.TabIndex = 3;
+            this.btnPicture.Text = "사진불러오기";
+            this.btnPicture.UseVisualStyleBackColor = true;
+            this.btnPicture.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnRe
             // 
-            this.button3.Location = new System.Drawing.Point(84, 353);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "다시하기";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnRe.Location = new System.Drawing.Point(84, 353);
+            this.btnRe.Name = "btnRe";
+            this.btnRe.Size = new System.Drawing.Size(89, 23);
+            this.btnRe.TabIndex = 3;
+            this.btnRe.Text = "다시하기";
+            this.btnRe.UseVisualStyleBackColor = true;
+            this.btnRe.Visible = false;
+            this.btnRe.Click += new System.EventHandler(this.btnRe_Click);
             // 
-            // button4
+            // btnSkin
             // 
-            this.button4.Location = new System.Drawing.Point(276, 126);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 63);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "피부색 검출";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSkin.Enabled = false;
+            this.btnSkin.Location = new System.Drawing.Point(276, 126);
+            this.btnSkin.Name = "btnSkin";
+            this.btnSkin.Size = new System.Drawing.Size(145, 63);
+            this.btnSkin.TabIndex = 3;
+            this.btnSkin.Text = "피부색 검출";
+            this.btnSkin.UseVisualStyleBackColor = true;
+            this.btnSkin.Click += new System.EventHandler(this.btnSkin_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // SetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 410);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSkin);
+            this.Controls.Add(this.btnRe);
+            this.Controls.Add(this.btnPicture);
+            this.Controls.Add(this.btnResult);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -116,9 +129,10 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnResult;
+        private System.Windows.Forms.Button btnPicture;
+        private System.Windows.Forms.Button btnRe;
+        private System.Windows.Forms.Button btnSkin;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
