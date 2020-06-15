@@ -73,7 +73,8 @@ namespace FindMyColor_m
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-            //여기서 Fcm실행?
+            ResultForm resultForm = new ResultForm();
+
         }
 
 
