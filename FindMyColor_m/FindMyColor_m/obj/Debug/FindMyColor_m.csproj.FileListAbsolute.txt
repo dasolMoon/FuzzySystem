@@ -18,3 +18,15 @@ D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.exe
 D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.pdb
 D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.SkinPickerForm.resources
 D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.csproj.CoreCompileInputs.cache
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\bin\Debug\FindMyColor_m.exe
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\bin\Debug\FindMyColor_m.pdb
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.csprojAssemblyReference.cache
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.MainForm.resources
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.Properties.Resources.resources
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.ResultForm.resources
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.SetForm.resources
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.SkinPickerForm.resources
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.csproj.GenerateResource.cache
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.csproj.CoreCompileInputs.cache
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.exe
+C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.pdb

@@ -12,7 +12,7 @@ namespace FindMyColor_m
     public partial class SetForm : Form
     {
         MainForm mainForm = null;
-        Color skinColor = Color.Black;
+        Color skinColor = Color.Empty;
         public SetForm(MainForm mainForm)
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace FindMyColor_m
         {
             //Mainform을 Visible = false로 설정했기 때문에 
             //현재 창이 꺼지면 MainForm이 Visible  = true로 설정
-            mainForm.WhenClosed();
+            mainForm.WhenSetFormClosed();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace FindMyColor_m
         private void btnRe_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = null;
-            pictureBox2.Image = null;
+            pictureBox2.BackColor = Color.Empty;
             btnPicture.Visible = true;
             btnRe.Visible = false;
             btnSkin.Enabled = false;
@@ -73,8 +73,9 @@ namespace FindMyColor_m
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-            ResultForm resultForm = new ResultForm();
-
+            ResultForm resultForm = new ResultForm(this);
+            resultForm.Show();
+            this.Visible = false;
         }
 
 
@@ -83,6 +84,11 @@ namespace FindMyColor_m
             skinColor = color;
             pictureBox2.BackColor = color;
             this.Visible = true;
+        }
+
+        public void WhenResultFormClosed()
+        {
+            this.Close();
         }
     }
 }

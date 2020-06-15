@@ -155,8 +155,8 @@
         private System.Windows.Forms.Button btnRe;
         private System.Windows.Forms.Button btnSkin;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pictureBox2;
     }
 }

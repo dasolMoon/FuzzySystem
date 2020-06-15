@@ -27,7 +27,7 @@ namespace FindMyColor_m
             this.Visible = false;
         }
 
-        public void WhenClosed()
+        public void WhenSetFormClosed()
         {
             this.Visible = true;
         }

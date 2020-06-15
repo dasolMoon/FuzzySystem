@@ -12,7 +12,7 @@ namespace FindMyColor_m
     public partial class SkinPickerForm : Form
     {
         Image skinImage= null;
-        Color skinColor = Color.Black;
+        Color skinColor = Color.Empty;
 
         SetForm setForm = null;
         public SkinPickerForm(SetForm setForm)
