@@ -16,8 +16,12 @@ namespace FindMyColor_m
         //색상 
         Color skinColor = Color.Empty;
         double[] skinColor_cmyk = null;
-        double[] skinColor_hvs = null;
+        double[] skinColor_hsv = null;
+        double[] skinColor_hsl = null;
         string skinColor_hex = null;
+
+        //퍼스널 컬러
+        Color personalColor = Color.Empty;
 
         //추천
 
@@ -56,10 +60,17 @@ namespace FindMyColor_m
             labelK.Text = "" + (skinColor_cmyk[3] * 100).ToString("F0") + "%"; //black *100
 
             //HSV
-            skinColor_hvs = RgbToHsv(skinColor);
-            labelH.Text = "" + skinColor_hvs[0].ToString("F0") + "º"; //H
-            labelS.Text = "" + (skinColor_hvs[1] * 100).ToString("F0") + "%"; //S *100
-            labelV.Text = "" + (skinColor_hvs[2] * 100).ToString("F0") + "%"; //V *100
+            skinColor_hsv = RgbToHsv(skinColor);
+            labelH.Text = "" + skinColor_hsv[0].ToString("F0") + "º"; //H
+            labelS.Text = "" + (skinColor_hsv[1] * 100).ToString("F0") + "%"; //S *100
+            labelV.Text = "" + (skinColor_hsv[2] * 100).ToString("F0") + "%"; //V *100
+
+            //HLS
+            skinColor_hsl = RgbToHsl(skinColor);
+            labelHu.Text = "" + skinColor_hsl[0].ToString("F0") + "º"; //H
+            labelSa.Text = "" + (skinColor_hsl[1] * 100).ToString("F0") + "%"; //S *100
+            labelLu.Text = "" + (skinColor_hsl[2] * 100).ToString("F0") + "%"; //V *100
+
 
             //HEX
             skinColor_hex = RgbToHex(skinColor);
@@ -96,27 +107,13 @@ namespace FindMyColor_m
                 {
                     temp[i] = 0;
                 }
-                else if (temp[i] > 100)
+                else if (temp[i] > 1)
                 {
-                    temp[i] = 100;
+                    temp[i] = 1;
                 }
             }
 
             return temp;
-        }
-
-        private Color CmykToRgb(double cyan, double magenta, double yellow, double black) // CMYK TO RGB
-        {
-            byte red = Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255);
-            byte green = Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255);
-            byte blue = Convert.ToByte((1 - Math.Min(1, yellow * (1 - black) + black)) * 255);
-            /*
-                        Color tempColor = Color.FromArgb(Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255),
-                        Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255),
-                        Convert.ToByte((1 - Math.Min(1, yellow * (1 - black) + black)) * 255));
-            */
-
-            return Color.FromArgb(red, green, blue);
         }
 
         private double[] RgbToHsv(Color color) // RGB TO HSV
@@ -131,15 +128,64 @@ namespace FindMyColor_m
 
             double[] temp = new double[] { hue, saturation, value };
 
-            for (int i = 0; i < temp.Length; i++)
+            for (int i = 1; i < temp.Length; i++)
             {
                 if (temp[i] < 0)
                 {
                     temp[i] = 0;
                 }
-                else if (temp[i] > 100)
+                else if (temp[i] > 1)
                 {
-                    temp[i] = 100;
+                    temp[i] = 1;
+                }
+            }
+
+            return temp;
+        }
+
+        private string RgbToHex(Color color)
+        {
+            return color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
+        }
+
+        private double[] RgbToHsl(Color color) // RGB TO HSL
+        {
+            double hue = color.GetHue(), saturation, luminance;
+
+            // Convert RGB to a 0.0 to 1.0 range.
+            double tempR = color.R / 255.0;
+            double tempG = color.G / 255.0;
+            double tempB = color.B / 255.0;
+
+            // Get the maximum and minimum RGB components.
+            double max = tempR;
+            if (max < tempG) max = tempG;
+            if (max < tempB) max = tempB;
+
+            double min = tempR;
+            if (min > tempG) min = tempG;
+            if (min > tempB) min = tempB;
+
+            double diff = max - min;
+            luminance = (max + min) / 2;
+            if (Math.Abs(diff) < 0.00001) saturation = 0;
+            else
+            {
+                if (luminance <= 0.5) saturation = diff / (max + min);
+                else saturation = (max == 0) ? 0 : 1d - (1d * min / max);
+
+            }
+            double[] temp = new double[] { hue, saturation, luminance };
+
+            for (int i = 1; i < temp.Length; i++)
+            {
+                if (temp[i] < 0)
+                {
+                    temp[i] = 0;
+                }
+                else if (temp[i] > 1)
+                {
+                    temp[i] = 1;
                 }
             }
 
@@ -170,12 +216,32 @@ namespace FindMyColor_m
             else
                 return Color.FromArgb(v, p, q);
         }
-
-        private string RgbToHex(Color color)
+        private Color colorFromCmyk(double cyan, double magenta, double yellow, double black) // CMYK TO RGB
         {
-            return color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
+            byte red = Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255);
+            byte green = Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255);
+            byte blue = Convert.ToByte((1 - Math.Min(1, yellow * (1 - black) + black)) * 255);
+            /*
+                        Color tempColor = Color.FromArgb(Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255),
+                        Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255),
+                        Convert.ToByte((1 - Math.Min(1, yellow * (1 - black) + black)) * 255));
+            */
+
+            return Color.FromArgb(red, green, blue);
         }
 
+        private void SetMyPersonalColor()
+        {
+            /* 1. 
+                saturation ≥ 0.2
+               2.
+                hue ≤ 28° ||hue ≥ 330°
+               3.
+                0.5 ≤ luminance/saturation ≤ 3.0*/
 
+            // santuration.min == 0.2 ; 
+            // 0<=hue<=28  ||  330<=hue<=359
+
+        }
     }
 }
