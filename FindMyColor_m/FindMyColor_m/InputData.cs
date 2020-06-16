@@ -17,11 +17,13 @@ namespace FindMyColor_m
     {
         int INPUT_TYPE = 3; //입력 데이터중 한 쌍이 되는 데이터의 갯수
         
-        //입력되는 데이터
+        // 데이터
         double[] data = null;
         double[,] inputData = null;
 
-        //이미지
+        SetForm setForm = null;
+
+        
         Image image = null;
 
         public InputData( )
@@ -29,55 +31,63 @@ namespace FindMyColor_m
 
         }
 
-        public InputData(Image image)
+        public InputData(SetForm setForm)
         {
-            this.image = image;
-            Init();
-
-          
+            this.setForm = setForm;
+            image = setForm.pictureBox1.Image;
         }
 
 
-        private void Init()
+        public double[,] Run() //입력된 데이터를 x, y구분하여 input_data에 2차원배열로 대입한다.
         {
             Bitmap tempBitmap = new Bitmap(image);
+            List<double> tempList = new List<double>();
+
+            int count = 0;
+
             for (int y = 0; y < image.Height; y++)
             {
                 for (int x = 0; x < image.Width; x++)
                 {
-                    if(tempBitmap.GetPixel(x,y).A != 0){
+                    Color color = tempBitmap.GetPixel(x, y);
+                    if (color.A != 0)
+                    {
+                        double[] tempHsl = setForm.RgbToHsl(color);
+                        double[] tempCmyk = setForm.RgbToCmyk(color);
 
-            }
+                        tempList.Add(tempHsl[2]);
+                        tempList.Add(tempHsl[1]);
+                        tempList.Add(tempHsl[2]);
+
+                        count++;
+
+                    }
                 }
+            }
+
+            data = new double[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                data[i] = tempList[i];
             }
 
             inputData = new double[data.Length / INPUT_TYPE, INPUT_TYPE];
 
-        }
-
-        public void Run() //입력된 데이터를 x, y구분하여 input_data에 2차원배열로 대입한다.
-        {
-            int count = 0;
+            
+            int index = 0;
             for (int i = 0; i < data.Length / INPUT_TYPE; i++)
             {
                 for (int k = 0; k < INPUT_TYPE; k++)
                 {
-                    inputData[i, k] = data[count];
-                    count++;
+                    inputData[i, k] = data[index];
+                    index++;
                 }
             }
-        }
 
-        public double[,] GetinputData() //배열 inputData를 배열 temp에 통째로 복사 후 temp를 return함 (보안)
-        {
-            double[,] temp = (double[,])inputData.Clone();
-            //= new int[inputData.GetLength(0), inputData.GetLength(1)];
-            return temp;
-
-
+            return inputData;
 
         }
-
 
     }
 }

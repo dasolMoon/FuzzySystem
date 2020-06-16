@@ -66,7 +66,13 @@ namespace FindMyColor_m
         {
             FindMySkin();
             //int temp = MessageBox.Show("클러스터의 갯수를 입력해주세요","클러스터 갯수 입력 ")
-            InputData input = new InputData(pictureBox1.Image);
+
+            InputData input = new InputData(this);
+            double[,] inputData = input.Run();
+
+            FCM fcm = new FCM();
+            fcm.Run(inputData);
+            //fcm.GetResult();
         }
 
         private void btnSkinSelf_Click(object sender, EventArgs e) // 직접 피부색 선택
@@ -141,7 +147,7 @@ namespace FindMyColor_m
             this.Close();
         }
 
-        private double[] RgbToHsl(Color color) // RGB TO HSL
+        public double[] RgbToHsl(Color color) // RGB TO HSL
         {
             double hue = color.GetHue(), saturation, luminance;
 
@@ -185,6 +191,32 @@ namespace FindMyColor_m
             return temp;
         }
 
+        public double[] RgbToCmyk(Color color) // RGB TO CMYK
+        {
+            byte red = color.R;
+            byte green = color.G;
+            byte blue = color.B;
 
+            double black = Math.Min(1.0 - red / 255.0, Math.Min(1.0 - green / 255.0, 1.0 - blue / 255.0));
+            double cyan = (1.0 - (red / 255.0) - black) / (1.0 - black);
+            double magenta = (1.0 - (green / 255.0) - black) / (1.0 - black);
+            double yellow = (1.0 - (blue / 255.0) - black) / (1.0 - black);
+
+            double[] temp = new double[] { cyan, magenta, yellow, black };
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp[i] < 0)
+                {
+                    temp[i] = 0;
+                }
+                else if (temp[i] > 1)
+                {
+                    temp[i] = 1;
+                }
+            }
+
+            return temp;
+        }
     }
 }

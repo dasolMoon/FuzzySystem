@@ -11,14 +11,17 @@ using System.Text;
  * 3.전체(U)행렬 업데이트 
  * 4.UU(k+1) - UU(k)< (임계값)이면 정지, 아니면 2단계로 돌아가 반복
  *                                        
- *  
+ *  2020.06.17
+ *  FCM이 종료된 시점에서 어떤 클러스터의 값이 가장많은지 선택하고
+ *  해당 클러스터의 색상을 가져와야함
+ *  현재 클러스터 갯수 : 2개
  */
 namespace FindMyColor_m
 {
     class FCM
     {
         //정적변수
-        static int CLUSTER = 3; //클러스터 개수
+        static int CLUSTER = 2; //클러스터 개수
         static int INPUT_TYPE = 3; //입력 데이터중 한 쌍이 되는 데이터의 개수
         static int M = 2;// 지수의 가중치 
         static double THRESHOLD = 0.0002;
@@ -41,14 +44,12 @@ namespace FindMyColor_m
 
         public FCM()
         {
-            Init();
+           
         }
-        private void Init() //기초작업 메소드
+
+        public void Run(double[,] inputData) //FCM 핵심 메소드 Run
         {
-            //Input data 가져오기
-            InputData input = new InputData();
-            input.Run();
-            this.inputData = input.GetinputData();
+            this.inputData = inputData;
             dataCount = inputData.GetLength(0);
 
 
@@ -57,11 +58,6 @@ namespace FindMyColor_m
             centroid = new double[CLUSTER, INPUT_TYPE];
             //uFuzzy = new double[CLUSTER, dataCount];
 
-
-        }
-
-        public void Run() //FCM 핵심 메소드 Run
-        {
             //초기 랜덤 소속함수 정의
             for (int i = 0; i < dataCount; i++)
             {
@@ -162,8 +158,8 @@ namespace FindMyColor_m
                 }
             }
         }
-
-        public string GetResult()
+        /*
+        public void GetResult()
         {
             string temp = null;
 
@@ -200,7 +196,8 @@ namespace FindMyColor_m
                 }
             }
 
-            return temp;
+            Console.WriteLine(temp);
         }
+        */
     }
 }
