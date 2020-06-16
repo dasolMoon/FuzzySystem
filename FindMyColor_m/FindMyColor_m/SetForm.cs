@@ -53,6 +53,7 @@ namespace FindMyColor_m
 
         private void btnRe_Click(object sender, EventArgs e)
         {
+            skinColor = Color.Empty;
             pictureBox1.Image = null;
             pictureBox2.BackColor = Color.Empty;
             btnPicture.Visible = true;
@@ -73,9 +74,16 @@ namespace FindMyColor_m
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-            ResultForm resultForm = new ResultForm(this);
-            resultForm.Show();
-            this.Visible = false;
+            if (skinColor == Color.Empty)
+            {
+                MessageBox.Show("피부색 선택 후 진행해주세요 ! ", "피부색 값이 비어있습니다.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                ResultForm resultForm = new ResultForm(this);
+                resultForm.Show();
+                this.Visible = false;
+            }
         }
 
 

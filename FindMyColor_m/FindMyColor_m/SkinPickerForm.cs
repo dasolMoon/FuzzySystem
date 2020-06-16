@@ -29,16 +29,34 @@ namespace FindMyColor_m
             if(skinImage.Width >= Screen.PrimaryScreen.Bounds.Width || 
                 skinImage.Height >= Screen.PrimaryScreen.Bounds.Height)
             {
-                //현재 해상도의 최대값-100px한 것을 Maximumsize로 설정함
-                this.MaximumSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width-100, Screen.PrimaryScreen.Bounds.Height-100);
-                this.Size = MaximumSize;
+                if(skinImage.Width >= Screen.PrimaryScreen.Bounds.Width &&
+                skinImage.Height >= Screen.PrimaryScreen.Bounds.Height)
+                {
+                    //현재 해상도의 최대값-100px한 것을 Maximumsize로 설정함
+                    this.MaximumSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width - 100, Screen.PrimaryScreen.Bounds.Height - 100);
+                    this.Size = MaximumSize;
+                }else if(skinImage.Width >= Screen.PrimaryScreen.Bounds.Width)
+                {
+                    //현재 해상도의 최대값-100px한 것을 Maximumsize.With로 설정함
+                    this.MaximumSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width - 100, skinImage.Height);
+                    this.Size = MaximumSize;
+                }else
+                {
+                    //현재 해상도의 최대값-100px한 것을 Maximumsize.Height로 설정함
+                    this.MaximumSize = new System.Drawing.Size(skinImage.Width, Screen.PrimaryScreen.Bounds.Height - 100);
+                    this.Size = MaximumSize;
+                }
             }
             else
             {
                 this.Size = skinImage.Size;
+
+
             }
             pictureBox1.Size = skinImage.Size;
             pictureBox1.Image = skinImage;
+
+
         }
 
         private void ImageMouseClick(object sender, MouseEventArgs e)
@@ -54,5 +72,9 @@ namespace FindMyColor_m
             }
         }
 
+        private void SkinPickerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            setForm.Visible = true;
+        }
     }
 }

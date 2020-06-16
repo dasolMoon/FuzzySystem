@@ -98,7 +98,7 @@
             this.btnSkin.Name = "btnSkin";
             this.btnSkin.Size = new System.Drawing.Size(145, 63);
             this.btnSkin.TabIndex = 3;
-            this.btnSkin.Text = "피부색 검출";
+            this.btnSkin.Text = "피부색 선택";
             this.btnSkin.UseVisualStyleBackColor = true;
             this.btnSkin.Click += new System.EventHandler(this.btnSkin_Click);
             // 

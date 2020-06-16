@@ -15,13 +15,15 @@ namespace FindMyColor_m
 
         //색상 
         Color skinColor = Color.Empty;
-        double[] skinColor_cmyk = null;
+        double[] skinColor_cmyk = null; // cyon magenta yellow black
         double[] skinColor_hsv = null;
         double[] skinColor_hsl = null;
         string skinColor_hex = null;
 
         //퍼스널 컬러
         Color personalColor = Color.Empty;
+        string tempType = null;
+        string seasonType = null;
 
         //추천
 
@@ -42,6 +44,8 @@ namespace FindMyColor_m
 
             //여러 색상 표기기법으로 피부 색상을 표시 
             SetMySkinColor();
+
+            SetMyPersonalColor();
         }
 
 
@@ -61,15 +65,15 @@ namespace FindMyColor_m
 
             //HSV
             skinColor_hsv = RgbToHsv(skinColor);
-            labelH.Text = "" + skinColor_hsv[0].ToString("F0") + "º"; //H
-            labelS.Text = "" + (skinColor_hsv[1] * 100).ToString("F0") + "%"; //S *100
-            labelV.Text = "" + (skinColor_hsv[2] * 100).ToString("F0") + "%"; //V *100
+            labelH.Text = "" + skinColor_hsv[0].ToString("F0") + "º"; //H 색조
+            labelS.Text = "" + (skinColor_hsv[1] * 100).ToString("F0") + "%"; //S *100 채도 
+            labelV.Text = "" + (skinColor_hsv[2] * 100).ToString("F0") + "%"; //V *100 값 
 
             //HLS
             skinColor_hsl = RgbToHsl(skinColor);
-            labelHu.Text = "" + skinColor_hsl[0].ToString("F0") + "º"; //H
-            labelSa.Text = "" + (skinColor_hsl[1] * 100).ToString("F0") + "%"; //S *100
-            labelLu.Text = "" + (skinColor_hsl[2] * 100).ToString("F0") + "%"; //V *100
+            labelHu.Text = "" + skinColor_hsl[0].ToString("F0") + "º"; //H 색조
+            labelSa.Text = "" + (skinColor_hsl[1] * 100).ToString("F0") + "%"; //S *100 채도 
+            labelLu.Text = "" + (skinColor_hsl[2] * 100).ToString("F0") + "%"; //ㅣ *100 
 
 
             //HEX
@@ -241,6 +245,19 @@ namespace FindMyColor_m
 
             // santuration.min == 0.2 ; 
             // 0<=hue<=28  ||  330<=hue<=359
+
+            //톤 구분
+            double magenta = skinColor_cmyk[1];
+            double yellow = skinColor_cmyk[2];
+
+            double deep = Math.Abs(magenta - yellow);  //ㅇ 가중치값 ?
+
+            if (magenta < yellow) tempType = "웜톤(WarmTone)";
+            else if (magenta > yellow) tempType = "쿨톤(CoolTone)";
+            else tempType = "중성톤(NeutralTone)";
+
+            labelTemp.Text = tempType;
+            labelDeep.Text = (deep * 100).ToString("F0");
 
         }
     }
