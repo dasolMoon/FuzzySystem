@@ -37,6 +37,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnSkinSelf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -96,9 +97,9 @@
             this.btnSkin.Enabled = false;
             this.btnSkin.Location = new System.Drawing.Point(272, 72);
             this.btnSkin.Name = "btnSkin";
-            this.btnSkin.Size = new System.Drawing.Size(145, 63);
+            this.btnSkin.Size = new System.Drawing.Size(67, 63);
             this.btnSkin.TabIndex = 3;
-            this.btnSkin.Text = "피부색 선택";
+            this.btnSkin.Text = "자동\r\n피부색\r\n선택";
             this.btnSkin.UseVisualStyleBackColor = true;
             this.btnSkin.Click += new System.EventHandler(this.btnSkin_Click);
             // 
@@ -123,12 +124,24 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "나의 피부색";
             // 
+            // btnSkinSelf
+            // 
+            this.btnSkinSelf.Enabled = false;
+            this.btnSkinSelf.Location = new System.Drawing.Point(350, 72);
+            this.btnSkinSelf.Name = "btnSkinSelf";
+            this.btnSkinSelf.Size = new System.Drawing.Size(67, 63);
+            this.btnSkinSelf.TabIndex = 3;
+            this.btnSkinSelf.Text = "직접 피부색 선택";
+            this.btnSkinSelf.UseVisualStyleBackColor = true;
+            this.btnSkinSelf.Click += new System.EventHandler(this.btnSkinSelf_Click);
+            // 
             // SetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 410);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.btnSkinSelf);
             this.Controls.Add(this.btnSkin);
             this.Controls.Add(this.btnRe);
             this.Controls.Add(this.btnPicture);
@@ -158,5 +171,6 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnSkinSelf;
     }
 }

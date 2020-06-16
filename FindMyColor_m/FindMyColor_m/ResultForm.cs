@@ -246,6 +246,26 @@ namespace FindMyColor_m
             // santuration.min == 0.2 ; 
             // 0<=hue<=28  ||  330<=hue<=359
 
+            /*
+             
+             첫째, Bright와 Vivid의 순색의 Yellow base 톤을 포함 한 고채도의 선명한 색을 봄 Warm bright로 한다.
+
+            둘째, Pale과 Light의 흰색이 포함된 Yellow base 톤의 저채도와 고명도의 색을 봄 Warm light로 한다.
+
+            셋째, Pale과 Light의 회색이 포함된 Blue base 톤의 저 채도와 고명도의 색을 여름 Cool light로 한다.
+
+            넷째, Soft, Dull, Grayish와 Light grayish, Dark, Dark grayish, Strong, Deep 일부의 회색을 포함하는 Blue base 톤의 저채도와 중-저명도의 색을 여름 Cool mute로 한다.
+
+            다섯째, Soft, Dull, Grayish, Light grayish와 Dark grayish, Dark 일부의 회색이 포함된 Yellow base 톤의 중- 저채도와 중-저명도의 색을 가을 Warm mute로 한다.
+
+            여섯째, Dull, Strong, Deep, Dark와 Dark grayish, Grayish 일부의 검은색이 섞인 Yellow base 톤의 고-저채도 와 중-저명도의 색을 가을 Warm deep으로 한다.
+
+            일곱째, Dark, Dark grayish와 Deep 일부의 검은색이 섞 인 Blue base 톤의 고-저채도와 저명도의 색을 겨울 Cool deep으로 한다.
+
+            여덟째, Vivid, Deep과 Bright, Strong 일부의 순색의 Blue base 톤의 고채도의 색을 겨울 Cool bright로 한다.
+             
+             */
+
             //톤 구분
             double magenta = skinColor_cmyk[1];
             double yellow = skinColor_cmyk[2];
@@ -260,5 +280,7 @@ namespace FindMyColor_m
             labelDeep.Text = (deep * 100).ToString("F0");
 
         }
+
+
     }
 }
