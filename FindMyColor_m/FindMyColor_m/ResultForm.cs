@@ -231,6 +231,7 @@ namespace FindMyColor_m
                         pictureBox2.Image = Properties.Resources.봄웜브라이트;
                         pictureBoxPeople.Image = Properties.Resources.아이유;
                         labelName.Text = "아이유";
+                        this.BackColor = Color.Orange;
                     }
                     else
                     {
@@ -330,7 +331,5 @@ namespace FindMyColor_m
             labelLight.Text = lightType;
 
         }
-
-
     }
 }

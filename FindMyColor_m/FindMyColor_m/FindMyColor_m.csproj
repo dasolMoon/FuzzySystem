@@ -141,9 +141,6 @@
     <None Include="Resources\겨울쿨브라이트.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\아이유.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\설리.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +187,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\셋.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\결과.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\아이유.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

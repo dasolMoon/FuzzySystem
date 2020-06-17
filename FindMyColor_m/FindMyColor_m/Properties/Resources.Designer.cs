@@ -123,6 +123,16 @@ namespace FindMyColor_m.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 결과 {
+            get {
+                object obj = ResourceManager.GetObject("결과", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 김고은 {
             get {
                 object obj = ResourceManager.GetObject("김고은", resourceCulture);
