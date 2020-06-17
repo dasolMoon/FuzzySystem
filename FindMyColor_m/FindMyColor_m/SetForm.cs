@@ -13,6 +13,8 @@ namespace FindMyColor_m
     {
         MainForm mainForm = null;
         Color skinColor = Color.Empty;
+        Image originalImage = null;
+
         public List<Color> selectedColor = null;
         public SetForm(MainForm mainForm)
         {
@@ -43,7 +45,7 @@ namespace FindMyColor_m
             {
                 //MessageBox.Show(openFileDialog1.FileName);
                 pictureBox1.Image = new Bitmap(openFileDialog1.FileName);
-
+                originalImage = new Bitmap(openFileDialog1.FileName);
 
                 //버튼 관리
                 btnPicture.Visible = false;
@@ -65,28 +67,43 @@ namespace FindMyColor_m
 
         private void btnSkin_Click(object sender, EventArgs e) // 자동 피부색 선택 ㅇ버튼작업
         {
+            if(pictureBox2 != null) pictureBox2.Image = null;
+
             FindMySkin();
             //int temp = MessageBox.Show("클러스터의 갯수를 입력해주세요","클러스터 갯수 입력 ")
 
-            InputData input = new InputData(this);
-            double[,] inputData = input.Run();
+            if (DialogResult.Yes == MessageBox.Show("추출된 이미지로 피부색 찾기를 진행하겠습니까?", "피부 추청 색 추출 완료", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                InputData input = new InputData(this);
+                double[,] inputData = input.Run();
 
-            FCM fcm = new FCM();
-            fcm.Run(inputData);
-            double[,] u = fcm.GetResult();
+                FCM fcm = new FCM();
+                fcm.Run(inputData);
+                double[,] u = fcm.GetResult();
 
-            skinColor = MyRealSkin(u);
-            pictureBox2.BackColor = skinColor;
+                skinColor = MyRealSkin(u);
+                pictureBox2.BackColor = skinColor;
+
+                btnSkin.Enabled = false;
+                btnResult.Enabled = true;
+
+            }
+            else
+            {
+                btnSkinSelf.Enabled = true;
+            }
+                
         }
 
         private void btnSkinSelf_Click(object sender, EventArgs e) // 직접 피부색 선택
         {
-            btnResult.Enabled = true;
-            //btnSkin.Enabled = false;
+           if(pictureBox1.Image != null) pictureBox1.Image = originalImage;
 
             SkinPickerForm skinPickerForm = new SkinPickerForm(this);
             skinPickerForm.Show();
             this.Visible = false;
+            btnResult.Enabled = true;
+            //btnSkin.Enabled = false;
         }
 
         private void btnResult_Click(object sender, EventArgs e)

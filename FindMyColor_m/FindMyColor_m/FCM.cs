@@ -21,10 +21,10 @@ namespace FindMyColor_m
     class FCM
     {
         //정적변수
-        static int CLUSTER = 3; //클러스터 개수
+        static int CLUSTER = 4; //클러스터 개수
         static int INPUT_TYPE = 3; //입력 데이터중 한 쌍이 되는 데이터의 개수
         static int M = 2;// 지수의 가중치 
-        static double THRESHOLD = 0.002;
+        static double THRESHOLD = 0.0002;
 
         //입력데이터
         double[,] inputData = null;
@@ -41,22 +41,15 @@ namespace FindMyColor_m
         //반복
         bool replay = true;//반복을 결정하는 bool변수
         int reCount = 0;// ()반복 횟수 
-
-        public FCM()
-        {
-           
-        }
-
+        
         public void Run(double[,] inputData) //FCM 핵심 메소드 Run
         {
             this.inputData = inputData;
             dataCount = inputData.GetLength(0);
 
-
             //전체 배열 초기화
             u = new double[dataCount, CLUSTER];
             centroid = new double[CLUSTER, INPUT_TYPE];
-            //uFuzzy = new double[CLUSTER, dataCount];
 
             //초기 랜덤 소속함수 정의
             for (int i = 0; i < dataCount; i++)
@@ -67,7 +60,6 @@ namespace FindMyColor_m
 
             do
             {
-                reCount++;
                 // 각 클러스터에 대한 중심 벡터 계산
                 SetCentroid();
 
@@ -84,88 +76,170 @@ namespace FindMyColor_m
 
         private void SetCentroid()// 각 클러스터에 대한 중심 벡터 계산
         {
-            for (int j = 0; j < CLUSTER; j++)
+            for (int k = 0; k < CLUSTER; k++)
             {
-                for (int r = 0; r < INPUT_TYPE; r++)  //x와 y 따로 - 변수 r 사용
+                for (int j = 0; j < INPUT_TYPE; j++)
                 {
                     double numerator = 0;//분자 설정
                     double denominator = 0;//분모 설정
                     for (int i = 0; i < dataCount; i++)
                     {
-                        numerator += Math.Pow(u[i, j], M) * inputData[i, r]; //분자
-                        denominator += Math.Pow(u[i, j], M);//분모
+                        numerator += Math.Pow(u[i, k], M) * inputData[i, j]; //분자
+                        denominator += Math.Pow(u[i, k], M);//분모
                     }
-                    centroid[j, r] = numerator / denominator;
+                    centroid[k, j] = numerator / denominator;
+
                 }
             }
         }
 
+
         private void SetNewU()//새로운 소속행렬 구성
         {
-            lastU = (double[,])u.Clone();//비교를위해 새로운 행렬 구하기전 복사
+            double[,] dw = new double[dataCount, CLUSTER];
+
+            /* new weight */
+            for (int i = 0; i < CLUSTER; i++)
+            {
+                for (int j = 0; j < dataCount; j++)
+                {
+                    for (int k = 0; k < INPUT_TYPE; k++)
+                    {
+                        dw[j, i] += Math.Pow((inputData[j, k] - centroid[i, k]), 2);
+                    }
+
+                    dw[j, i] = 1 / dw[j, i];
+
+                    if (dw[j, i].Equals(double.NaN))
+                    {
+                        dw[j, i] = 1;
+                    }
+                }
+            }
 
             for (int i = 0; i < dataCount; i++)
+            {
+                for (int j = 0; j < CLUSTER; j++)
+                {
+                    double wsum = 0;
+                    for (int k = 0; k < CLUSTER; k++)
+                    {
+                        wsum += dw[i, k];
+                    }
+
+                    u[i, j] = (dw[i, j] / wsum);
+                }
+            }
+
+            /*
+            for (int i = 0; i < dataCount; i++)
+            {
+                for (int k = 0; k < CLUSTER; k++)
+                {
+                    double temp = 1 / Math.Pow(Distance(inputData[i, 0], inputData[i, 1], centroid[k, 0], centroid[k, 1]), 2 / (M - 1));
+                    if (double.IsNaN(temp)) //만약 0으로 나누는 경우가 생겨 값이 무한대가 된다면
+                    {                       //숫자가 아니라면 
+                        temp = 1;           //해당 계산값을 1로 설정한다.
+                    }
+
+                    double sum = 0;
+                    for (int j = 0; j < CLUSTER; j++)
+                    {
+                        double temp2 = Distance(centroid[j, 0], centroid[j, 1], centroid[k, 0], centroid[k, 1]);
+                        double temp3 = 1 /  Math.Pow(temp2, 2 / (M - 1));
+                        if (double.IsNaN(temp3)) //만약 0으로 나누는 경우가 생겨 값이 무한대가 된다면
+                        {                       //숫자가 아니라면 
+                            temp3 = 1;           //해당 계산값을 1로 설정한다.
+                        }
+
+                        sum += temp3;
+
+                    }
+                    u[i, k] = temp / sum;
+
+                }
+            }*/
+
+            /*
+            for (int i = 0; i < dataCount; i++)
             { // i번째 데이터 Xi
-                double numerator = 0; //거리 분자
-                double denominator = 0; //거리 분모
-                double sum = 0;
                 for (int j = 0; j < CLUSTER; j++)
                 {// j번째 클러스터 Cj
+                    double sum = 0;
                     for (int k = 0; k < CLUSTER; k++)
-                    {// k번째 클러스터 Ck
-                        //각각의 값 말고 배열을 보낼 때사용하는것도 만들어볼것
-                        numerator += Distance(inputData[i, 0], inputData[i, 1], centroid[j, 0], centroid[j, 1]);//분자
-                        denominator += Distance(inputData[i, 0], inputData[i, 1], centroid[k, 0], centroid[k, 1]);//분모
-                        double temp = Math.Pow((numerator / denominator), 2 / (M - 1));
+                    {//분모를 위한 k번째 클러스터 Ck
+                        double numerator = Distance(inputData[i, 0], inputData[i, 1], centroid[j, 0], centroid[j, 0]); //클러스터 개수 바뀌면 수정
+                        double denominator = Distance(inputData[i,0], inputData[i,1], centroid[k,0], centroid[k,1]);
+                        double temp = Math.Pow((numerator / denominator), (2 / (M - 1)));
 
                         if (double.IsNaN(temp)) //만약 0으로 나누는 경우가 생겨 값이 무한대가 된다면
                         {                       //숫자가 아니라면 
                             temp = 1;           //해당 계산값을 1로 설정한다.
-                        }                       //영의 몫에 가까운 숫자가 0.00(...)1이면 1% temp는 0.00(...)1가 됨
+                        }
+
                         sum += temp;
                     }
                     u[i, j] = 1 / sum;
                 }
-            }
+            }*/
         }
 
         private double Distance(double x1, double y1, double x2, double y2)//Data1과 Data2 거리 계산
         {
-            return Math.Sqrt(Math.Pow(x2 - x1, 2.0) + Math.Pow(y2 - y1, 2.0));
+            //  return Math.Sqrt(Math.Pow(x2 - x1, 2.0) + Math.Pow(y2 - y1, 2.0));
+            return Math.Pow(x2 - x1, 2.0) + Math.Pow(y2 - y1, 2.0);
+
         }
 
         private void Comparison() //종료조건을 만족하는지 검사 
         {
             if (reCount > 1)
             {
-                double max = double.MinValue;
-                for (int i = 0; i < dataCount; i++)
+                double max = 0.0;
+
+                for (int k = 0; k < CLUSTER; k++)
                 {
-                    for (int j = 0; j < CLUSTER; j++)
+                    for (int i = 0; i < dataCount; i++)
                     {
-                        double temp = u[i, j] - lastU[i, j];
-                        if (max < temp)
-                        {
-                            max = temp;
-                        }
+                        double temp = Math.Abs(u[i, k] - lastU[i, k]);
+                        if (max < temp) max = temp;
                     }
                 }
 
-                //임계값과 비교
-                if (max <= THRESHOLD)
+                if (max < THRESHOLD)
                 {
                     replay = false;
                 }
+
             }
+
+            lastU = (double[,])u.Clone();//비교를위해 현재 행렬 복사
+            reCount++;
         }
 
         public double[,] GetResult()
         {
-            //Console.WriteLine(temp);
+            /*
+            string temp = null;
+
+            for (int k = 0; k < CLUSTER; k++)
+            {
+                temp += "[ " + (k + 1) + "번째 클러스터 ] \r\n\r\ncentroid x : " + inputData[k, 0] + " y : " + inputData[k, 1];
+                int count = 0;
+                for (int i = 0; i < dataCount; i++)
+                {
+                    if (u[i, k] != 0)
+                    {
+                        temp += "\r\n\r\n" + ++count + "번째 데이터\r\n소속도 : " + u[i, k] + "\r\nx : " + inputData[i, 0] + "\r\ny : " + inputData[i, 1] + "\r\n";
+                    }
+                }
+                temp += "\r\n\r\n\r\n";
+            }
+
+            return temp;*/
+
             return u;
         }
-        
-
-
     }
 }
+

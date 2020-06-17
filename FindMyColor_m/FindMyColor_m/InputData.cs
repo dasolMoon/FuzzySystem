@@ -15,6 +15,7 @@ namespace FindMyColor_m
 {
     class InputData
     {
+        //정적변수
         int INPUT_TYPE = 3; //입력 데이터중 한 쌍이 되는 데이터의 갯수
         
         // 데이터
@@ -55,11 +56,12 @@ namespace FindMyColor_m
                     {
                         inputColor.Add(color);
                         double[] tempHsl = setForm.RgbToHsl(color);
-                        double[] tempCmyk = setForm.RgbToCmyk(color);
+                        double[] tempcmyk = setForm.RgbToCmyk(color);
+
 
                         tempList.Add(tempHsl[2] *100);
                         tempList.Add(tempHsl[1] * 100);
-                        tempList.Add(tempCmyk[2] * 100);
+                        tempList.Add(tempcmyk[2] * 100);
 
                         count++;
 
