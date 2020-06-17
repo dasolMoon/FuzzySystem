@@ -23,7 +23,7 @@ namespace FindMyColor_m
 
         SetForm setForm = null;
 
-        
+        List<Color> inputColor = null;
         Image image = null;
 
         public InputData( )
@@ -35,6 +35,7 @@ namespace FindMyColor_m
         {
             this.setForm = setForm;
             image = setForm.pictureBox1.Image;
+            inputColor = new List<Color>();
         }
 
 
@@ -52,12 +53,13 @@ namespace FindMyColor_m
                     Color color = tempBitmap.GetPixel(x, y);
                     if (color.A != 0)
                     {
+                        inputColor.Add(color);
                         double[] tempHsl = setForm.RgbToHsl(color);
                         double[] tempCmyk = setForm.RgbToCmyk(color);
 
-                        tempList.Add(tempHsl[2]);
-                        tempList.Add(tempHsl[1]);
-                        tempList.Add(tempHsl[2]);
+                        tempList.Add(tempHsl[2] *100);
+                        tempList.Add(tempHsl[1] * 100);
+                        tempList.Add(tempCmyk[2] * 100);
 
                         count++;
 
@@ -84,6 +86,8 @@ namespace FindMyColor_m
                     index++;
                 }
             }
+
+            setForm.selectedColor = inputColor;
 
             return inputData;
 

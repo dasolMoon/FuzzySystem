@@ -13,6 +13,7 @@ namespace FindMyColor_m
     {
         MainForm mainForm = null;
         Color skinColor = Color.Empty;
+        public List<Color> selectedColor = null;
         public SetForm(MainForm mainForm)
         {
             InitializeComponent();
@@ -72,7 +73,10 @@ namespace FindMyColor_m
 
             FCM fcm = new FCM();
             fcm.Run(inputData);
-            //fcm.GetResult();
+            double[,] u = fcm.GetResult();
+
+            skinColor = MyRealSkin(u);
+            pictureBox2.BackColor = skinColor;
         }
 
         private void btnSkinSelf_Click(object sender, EventArgs e) // 직접 피부색 선택
@@ -140,6 +144,58 @@ namespace FindMyColor_m
             skinColor = color;
             pictureBox2.BackColor = color;
             this.Visible = true;
+        }
+        private Color MyRealSkin(double[,] u)
+        {
+            List<List<Color>> newU = new List<List<Color>>(u.GetLength(1));
+            for (int i = 0; i < u.GetLength(1); i++)
+            {
+                List<Color> tempList = new List<Color>();
+                newU.Add(tempList);
+            }
+
+
+            for (int i = 0; i < u.GetLength(0); i++)
+            {
+                double max = double.MinValue;
+                int maxCluster = 0;
+                for (int j = 0; j < u.GetLength(1); j++)
+                {
+                    if (max < u[i, j])
+                    {
+                        max = u[i, j];
+                        maxCluster = j;
+                    }
+                }
+                newU[maxCluster].Add(selectedColor[i]);
+            }
+
+            //클러스터별로 사용된 Color 배열 만듦
+            int maxCount = int.MinValue;
+            int mainCluster = 0;
+            for (int i = 0; i < newU.Count;i++)
+            {
+                if(maxCount < newU[i].Count)
+                {
+                    maxCount = newU[i].Count;
+                    mainCluster = i;
+                }
+            }
+
+            int r = 0, g = 0, b = 0;
+            //메인클러스터에 속한 Color들의 평균
+            for (int i = 0; i < newU[mainCluster].Count; i++)
+            {
+                r += newU[mainCluster][i].R;
+                g += newU[mainCluster][i].G;
+                b += newU[mainCluster][i].B;
+            }
+
+            r = r / newU[mainCluster].Count;
+            g = g / newU[mainCluster].Count;
+            b = b / newU[mainCluster].Count;
+
+            return Color.FromArgb(r, g, b);
         }
 
         public void WhenResultFormClosed()

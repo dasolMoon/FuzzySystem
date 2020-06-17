@@ -21,10 +21,10 @@ namespace FindMyColor_m
     class FCM
     {
         //정적변수
-        static int CLUSTER = 2; //클러스터 개수
+        static int CLUSTER = 3; //클러스터 개수
         static int INPUT_TYPE = 3; //입력 데이터중 한 쌍이 되는 데이터의 개수
         static int M = 2;// 지수의 가중치 
-        static double THRESHOLD = 0.0002;
+        static double THRESHOLD = 0.002;
 
         //입력데이터
         double[,] inputData = null;
@@ -158,46 +158,14 @@ namespace FindMyColor_m
                 }
             }
         }
-        /*
-        public void GetResult()
+
+        public double[,] GetResult()
         {
-            string temp = null;
-
-            if (CLUSTER == 3)
-            {
-                for (int i = 0; i < CLUSTER; i++)
-                {
-                    temp += "[ " + (i + 1) + "번째 클러스터 ] \r\n\r\ncentroid x : " + centroid[i, 0] + " y : " + centroid[i, 1] + " z : " + centroid[i, 2];
-                    int count = 0;
-                    for (int j = 0; j < dataCount; j++)
-                    {
-                        if (u[j, i] != 0)
-                        {
-                            temp += "\r\n\r\n" + ++count + "번째 데이터\r\n소속도 : " + u[j, i] + "\r\nx : " + inputData[j, 0] + "\r\ny : " + inputData[j, 1] + "\r\nz : " + inputData[j, 2] + "\r\n";
-                        }
-                    }
-                    temp += "\r\n\r\n\r\n";
-                }
-            }
-            else if (CLUSTER == 2)
-            {
-                for (int i = 0; i < CLUSTER; i++)
-                {
-                    temp += "[ " + (i + 1) + "번째 클러스터 ] \r\n\r\ncentroid x : " + inputData[i, 0] + " y : " + inputData[i, 1];
-                    int count = 0;
-                    for (int j = 0; j < dataCount; j++)
-                    {
-                        if (u[j, i] != 0)
-                        {
-                            temp += "\r\n\r\n" + ++count + "번째 데이터\r\n소속도 : " + u[j, i] + "\r\nx : " + inputData[j, 0] + "\r\ny : " + inputData[j, 1] + "\r\n";
-                        }
-                    }
-                    temp += "\r\n\r\n\r\n";
-                }
-            }
-
-            Console.WriteLine(temp);
+            //Console.WriteLine(temp);
+            return u;
         }
-        */
+        
+
+
     }
 }
