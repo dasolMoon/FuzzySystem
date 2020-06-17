@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colors.cs" />
     <Compile Include="FCM.cs" />
     <Compile Include="InputData.cs" />
     <Compile Include="MainForm.cs">
@@ -108,10 +109,55 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\지호.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\봄웜라이트.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\봄웜브라이트.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\여름쿨라이트.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\여름쿨뮤트.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\가을웜딥.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\가을웜뮤트.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\겨울쿨딥.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\겨울쿨브라이트.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\아이유.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\설리.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\지호.jpg" />
+    <None Include="Resources\이효리.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\이성경.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\이다희.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\문근영.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\아이린.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\김고은.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

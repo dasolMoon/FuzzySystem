@@ -178,18 +178,37 @@ namespace FindMyColor_m
 
             /*
              <웜톤>
-            High Y	High L	High S	Spring warm bright
-            High Y	High L	Low S	Spring warm light
-            Low Y	High L	Low S	Autumn warm mute
-            Low Y	High L	High S	Autumn warm deep
+            High L	High Y	High S	Spring warm bright
+            High L	High Y	Low S	Spring warm light
+            Low L	High Y	Low S	Autumn warm mute
+            Low L	High Y	High S	Autumn warm deep
             <쿨톤>
-            High Y	Low L	Low S	Summer cool light
-            Low Y	Low L	Low S	Summer cool mute
-            Low Y	Low L	High S	Winter cool deep
-            High Y	Low L	High S	Winter cool bright
+            High L	Low Y	Low S	Summer cool light
+            Low L	Low Y	Low S	Summer cool mute
+            Low L	Low Y	High S	Winter cool deep
+            High L	Low Y	High S	Winter cool bright
              */
 
-        
+            /*
+            HIGH LUMINANCE 
+            0.65 ~ 1
+
+            HIGH SATURATION
+            0.33 ~1
+
+            HIGH YELLOW 
+            18.5 ~ 30
+
+            LOW LUMINANCE
+            0 ~ 0.65
+
+            LOW SATURATION
+            0.2 ~ 0.33
+
+            LOW YELLOW 
+            0.5 ~ 18.5
+             */
+
             //깊이 표현
             labelDeep.Text = (deep * 100).ToString("F0");
 
@@ -198,55 +217,92 @@ namespace FindMyColor_m
             double toneS = skinColor_hsl[1];
             double toneL = skinColor_hsl[2];
 
-            /*
-            HIGH YELLOW 
-            0.5 ~ 1
-
-            HIGH SATURATION
-            0.6 ~ 1
-
-            HIGH LUMINANCE 
-            1.75 ~ 3
-
-            LOW YELLOW
-            0 ~ 0.5
-
-            LOW SATURATION
-            0.2 ~ 0.6
-
-            LOW LUMINANCE 
-            0.5 ~ 1.75
-             */
 
             // 웜톤, 쿨톤 구분
-            if (toneL >= 1.75) 
+            if (toneY*100 >= 18.5) 
             {
-                tempType = "웜톤(WarmTone)";
-                if(toneY >= 0.5)
+                tempType = "웜(Warm)";
+                if(toneL >= 0.70)
                 {
                     seasonType = "봄(Spring)";
+                    if (toneS >= 0.25)
+                    {
+                        lightType = "브라이트(Bright)";
+                        pictureBox2.Image = Properties.Resources.봄웜브라이트;
+                        pictureBoxPeople.Image = Properties.Resources.아이유;
+                        labelName.Text = "아이유";
+                    }
+                    else
+                    {
+                        lightType = "라이트(Light)";
+                        pictureBox2.Image = Properties.Resources.봄웜라이트;
+                        pictureBoxPeople.Image = Properties.Resources.설리;
+                        labelName.Text = "설리";
+                    }
                 }
                 else
                 {
                     seasonType = "가을(Autumn)";
+                    if (toneS >= 0.25)
+                    {
+                        lightType = "딥(Deep)";
+                        pictureBox2.Image = Properties.Resources.가을웜딥;
+                        pictureBoxPeople.Image = Properties.Resources.이효리;
+                        labelName.Text = "이효리";
+                    }
+                    else
+                    {
+                        lightType = "뮤트(Mute)";
+                        pictureBox2.Image = Properties.Resources.가을웜뮤트;
+                        pictureBoxPeople.Image = Properties.Resources.이성경;
+                        labelName.Text = "이성경";
+                    }
                 }
             }
             else 
             {
-                tempType = "쿨톤(CoolTone)";
-                if(toneS >=0.6)
+                tempType = "쿨(Cool)";
+                if(toneS >= 0.25)
                 {
                     seasonType = "겨울(Winter)";
+                    if(toneL >= 0.70)
+                    {
+                        lightType = "브라이트(Bright)";
+                        pictureBox2.Image = Properties.Resources.겨울쿨브라이트;
+                        pictureBoxPeople.Image = Properties.Resources.이다희;
+                        labelName.Text = "이다희";
+                    }
+                    else
+                    {
+                        lightType = "딥(Deep)";
+                        pictureBox2.Image = Properties.Resources.겨울쿨딥;
+                        pictureBoxPeople.Image = Properties.Resources.문근영;
+                        labelName.Text = "문근영";
+                    }
                 }
                 else
                 {
                     seasonType = "여름(Summer)";
+                    if (toneL >= 0.70)
+                    {
+                        lightType = "라이트(Light)";
+                        pictureBox2.Image = Properties.Resources.여름쿨라이트;
+                        pictureBoxPeople.Image = Properties.Resources.아이린;
+                        labelName.Text = "아이린";
+                    }
+                    else
+                    {
+                        lightType = "뮤트(Mute)";
+                        pictureBox2.Image = Properties.Resources.여름쿨뮤트;
+                        pictureBoxPeople.Image = Properties.Resources.김고은;
+                        labelName.Text = "김고은";
+                    }
                 }
             }
-
+            /*
             //bright 구분
-            if (toneY >= 0.5) {
-                if(toneS >= 0.6)
+            if (toneL >= 0.6) {
+                if(toneS >= 0.3)
                 {
                     lightType = "브라이트(Bright)";
                 }
@@ -255,7 +311,7 @@ namespace FindMyColor_m
                     lightType= "라이트(Light)"; 
                 }
             }else {
-                if (toneS >= 0.6)
+                if (toneS >= 0.3)
                 {
                     lightType = "딥(Deep)";
                 }
@@ -263,12 +319,15 @@ namespace FindMyColor_m
                 {
                     lightType = "뮤트(Mute)";
                 }
-            }
+            }*/
 
             //깊이 정도
             deep = (int)Math.Abs(skinColor_cmyk[1] - skinColor_cmyk[2]);
-            //라벨브라이트
 
+            //라벨 설정
+            labelseason.Text = seasonType;
+            labelTemp.Text = tempType;
+            labelLight.Text = lightType;
 
         }
 

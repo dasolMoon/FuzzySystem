@@ -63,6 +63,7 @@ namespace FindMyColor_m
             btnPicture.Visible = true;
             btnRe.Visible = false;
             btnSkin.Enabled = false;
+            btnSkinSelf.Enabled = false;
             btnResult.Enabled = false;
         }
 
