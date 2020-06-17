@@ -85,8 +85,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.labelBright = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -372,7 +371,7 @@
             // labelseason
             // 
             this.labelseason.AutoSize = true;
-            this.labelseason.Location = new System.Drawing.Point(102, 34);
+            this.labelseason.Location = new System.Drawing.Point(21, 34);
             this.labelseason.Name = "labelseason";
             this.labelseason.Size = new System.Drawing.Size(29, 12);
             this.labelseason.TabIndex = 2;
@@ -381,7 +380,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(90, 71);
+            this.label12.Location = new System.Drawing.Point(170, 71);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 12);
             this.label12.TabIndex = 2;
@@ -390,7 +389,7 @@
             // labelTemp
             // 
             this.labelTemp.AutoSize = true;
-            this.labelTemp.Location = new System.Drawing.Point(162, 34);
+            this.labelTemp.Location = new System.Drawing.Point(71, 34);
             this.labelTemp.Name = "labelTemp";
             this.labelTemp.Size = new System.Drawing.Size(41, 12);
             this.labelTemp.TabIndex = 2;
@@ -626,23 +625,14 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label13
+            // labelBright
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(21, 34);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 12);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "색채공식결과";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(17, 59);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 12);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "FCM결과";
+            this.labelBright.AutoSize = true;
+            this.labelBright.Location = new System.Drawing.Point(153, 34);
+            this.labelBright.Name = "labelBright";
+            this.labelBright.Size = new System.Drawing.Size(41, 12);
+            this.labelBright.TabIndex = 2;
+            this.labelBright.Text = "어떤톤";
             // 
             // ResultForm
             // 
@@ -674,11 +664,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelBright);
             this.Controls.Add(this.labelTemp);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.labelseason);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -803,7 +792,6 @@
         private System.Windows.Forms.Label labelTemp;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label labelDeep;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelBright;
     }
 }

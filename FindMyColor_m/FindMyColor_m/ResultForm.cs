@@ -23,7 +23,9 @@ namespace FindMyColor_m
         //퍼스널 컬러
         Color personalColor = Color.Empty;
         string tempType = null;
+        string lightType = null;
         string seasonType = null;
+        int deep = 0;
 
         //추천
 
@@ -46,6 +48,7 @@ namespace FindMyColor_m
             SetMySkinColor();
 
             SetMyPersonalColor();
+
         }
 
 
@@ -57,7 +60,7 @@ namespace FindMyColor_m
             labelB.Text = "" + skinColor.B;
 
             //CMYK
-            skinColor_cmyk = RgbToCmyk(skinColor);
+            skinColor_cmyk = setForm.RgbToCmyk(skinColor);
             labelC.Text = "" + (skinColor_cmyk[0] * 100).ToString("F0") + "%"; //cyan *100
             labelM.Text = "" + (skinColor_cmyk[1] * 100).ToString("F0") + "%"; //magenta *100
             labelY.Text = "" + (skinColor_cmyk[2] * 100).ToString("F0") + "%"; //yellow *100
@@ -70,7 +73,7 @@ namespace FindMyColor_m
             labelV.Text = "" + (skinColor_hsv[2] * 100).ToString("F0") + "%"; //V *100 값 
 
             //HLS
-            skinColor_hsl = RgbToHsl(skinColor);
+            skinColor_hsl = setForm.RgbToHsl(skinColor);
             labelHu.Text = "" + skinColor_hsl[0].ToString("F0") + "º"; //H 색조
             labelSa.Text = "" + (skinColor_hsl[1] * 100).ToString("F0") + "%"; //S *100 채도 
             labelLu.Text = "" + (skinColor_hsl[2] * 100).ToString("F0") + "%"; //ㅣ *100 
@@ -90,34 +93,6 @@ namespace FindMyColor_m
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private double[] RgbToCmyk(Color color) // RGB TO CMYK
-        {
-            byte red = color.R;
-            byte green = color.G;
-            byte blue = color.B;
-
-            double black = Math.Min(1.0 - red / 255.0, Math.Min(1.0 - green / 255.0, 1.0 - blue / 255.0));
-            double cyan = (1.0 - (red / 255.0) - black) / (1.0 - black);
-            double magenta = (1.0 - (green / 255.0) - black) / (1.0 - black);
-            double yellow = (1.0 - (blue / 255.0) - black) / (1.0 - black);
-
-            double[] temp = new double[] { cyan, magenta, yellow, black };
-
-            for (int i = 0; i < temp.Length; i++)
-            {
-                if (temp[i] < 0)
-                {
-                    temp[i] = 0;
-                }
-                else if (temp[i] > 1)
-                {
-                    temp[i] = 1;
-                }
-            }
-
-            return temp;
         }
 
         private double[] RgbToHsv(Color color) // RGB TO HSV
@@ -152,49 +127,7 @@ namespace FindMyColor_m
             return color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
         }
 
-        private double[] RgbToHsl(Color color) // RGB TO HSL
-        {
-            double hue = color.GetHue(), saturation, luminance;
-
-            // Convert RGB to a 0.0 to 1.0 range.
-            double tempR = color.R / 255.0;
-            double tempG = color.G / 255.0;
-            double tempB = color.B / 255.0;
-
-            // Get the maximum and minimum RGB components.
-            double max = tempR;
-            if (max < tempG) max = tempG;
-            if (max < tempB) max = tempB;
-
-            double min = tempR;
-            if (min > tempG) min = tempG;
-            if (min > tempB) min = tempB;
-
-            double diff = max - min;
-            luminance = (max + min) / 2;
-            if (Math.Abs(diff) < 0.00001) saturation = 0;
-            else
-            {
-                if (luminance <= 0.5) saturation = diff / (max + min);
-                else saturation = (max == 0) ? 0 : 1d - (1d * min / max);
-
-            }
-            double[] temp = new double[] { hue, saturation, luminance };
-
-            for (int i = 1; i < temp.Length; i++)
-            {
-                if (temp[i] < 0)
-                {
-                    temp[i] = 0;
-                }
-                else if (temp[i] > 1)
-                {
-                    temp[i] = 1;
-                }
-            }
-
-            return temp;
-        }
+        /*
 
         private Color ColorFromHSV(double hue, double saturation, double value) // HSV TO RGB
         {
@@ -225,15 +158,11 @@ namespace FindMyColor_m
             byte red = Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255);
             byte green = Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255);
             byte blue = Convert.ToByte((1 - Math.Min(1, yellow * (1 - black) + black)) * 255);
-            /*
-                        Color tempColor = Color.FromArgb(Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255),
-                        Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255),
-                        Convert.ToByte((1 - Math.Min(1, yellow * (1 - black) + black)) * 255));
-            */
+            
 
             return Color.FromArgb(red, green, blue);
         }
-
+        */
         private void SetMyPersonalColor()
         {
             /* 1. 
@@ -241,43 +170,105 @@ namespace FindMyColor_m
                2.
                 hue ≤ 28° ||hue ≥ 330°
                3.
-                0.5 ≤ luminance/saturation ≤ 3.0*/
-
-            // santuration.min == 0.2 ; 
-            // 0<=hue<=28  ||  330<=hue<=359
-
-            /*
+                0.5 ≤ luminance/saturation ≤ 3.0
              
-             첫째, Bright와 Vivid의 순색의 Yellow base 톤을 포함 한 고채도의 선명한 색을 봄 Warm bright로 한다.
-
-            둘째, Pale과 Light의 흰색이 포함된 Yellow base 톤의 저채도와 고명도의 색을 봄 Warm light로 한다.
-
-            셋째, Pale과 Light의 회색이 포함된 Blue base 톤의 저 채도와 고명도의 색을 여름 Cool light로 한다.
-
-            넷째, Soft, Dull, Grayish와 Light grayish, Dark, Dark grayish, Strong, Deep 일부의 회색을 포함하는 Blue base 톤의 저채도와 중-저명도의 색을 여름 Cool mute로 한다.
-
-            다섯째, Soft, Dull, Grayish, Light grayish와 Dark grayish, Dark 일부의 회색이 포함된 Yellow base 톤의 중- 저채도와 중-저명도의 색을 가을 Warm mute로 한다.
-
-            여섯째, Dull, Strong, Deep, Dark와 Dark grayish, Grayish 일부의 검은색이 섞인 Yellow base 톤의 고-저채도 와 중-저명도의 색을 가을 Warm deep으로 한다.
-
-            일곱째, Dark, Dark grayish와 Deep 일부의 검은색이 섞 인 Blue base 톤의 고-저채도와 저명도의 색을 겨울 Cool deep으로 한다.
-
-            여덟째, Vivid, Deep과 Bright, Strong 일부의 순색의 Blue base 톤의 고채도의 색을 겨울 Cool bright로 한다.
-             
+               santuration.min == 0.2 ; 
+               0<=hue<=28  ||  330<=hue<=359
              */
 
-            //톤 구분
-            double magenta = skinColor_cmyk[1];
-            double yellow = skinColor_cmyk[2];
+            /*
+             <웜톤>
+            High Y	High L	High S	Spring warm bright
+            High Y	High L	Low S	Spring warm light
+            Low Y	High L	Low S	Autumn warm mute
+            Low Y	High L	High S	Autumn warm deep
+            <쿨톤>
+            High Y	Low L	Low S	Summer cool light
+            Low Y	Low L	Low S	Summer cool mute
+            Low Y	Low L	High S	Winter cool deep
+            High Y	Low L	High S	Winter cool bright
+             */
 
-            double deep = Math.Abs(magenta - yellow);  //ㅇ 가중치값 ?
-
-            if (magenta < yellow) tempType = "웜톤(WarmTone)";
-            else if (magenta > yellow) tempType = "쿨톤(CoolTone)";
-            else tempType = "중성톤(NeutralTone)";
-
-            labelTemp.Text = tempType;
+        
+            //깊이 표현
             labelDeep.Text = (deep * 100).ToString("F0");
+
+            //계절 깊이 구분
+            double toneY = skinColor_cmyk[2];
+            double toneS = skinColor_hsl[1];
+            double toneL = skinColor_hsl[2];
+
+            /*
+            HIGH YELLOW 
+            0.5 ~ 1
+
+            HIGH SATURATION
+            0.6 ~ 1
+
+            HIGH LUMINANCE 
+            1.75 ~ 3
+
+            LOW YELLOW
+            0 ~ 0.5
+
+            LOW SATURATION
+            0.2 ~ 0.6
+
+            LOW LUMINANCE 
+            0.5 ~ 1.75
+             */
+
+            // 웜톤, 쿨톤 구분
+            if (toneL >= 1.75) 
+            {
+                tempType = "웜톤(WarmTone)";
+                if(toneY >= 0.5)
+                {
+                    seasonType = "봄(Spring)";
+                }
+                else
+                {
+                    seasonType = "가을(Autumn)";
+                }
+            }
+            else 
+            {
+                tempType = "쿨톤(CoolTone)";
+                if(toneS >=0.6)
+                {
+                    seasonType = "겨울(Winter)";
+                }
+                else
+                {
+                    seasonType = "여름(Summer)";
+                }
+            }
+
+            //bright 구분
+            if (toneY >= 0.5) {
+                if(toneS >= 0.6)
+                {
+                    lightType = "브라이트(Bright)";
+                }
+                else
+                {
+                    lightType= "라이트(Light)"; 
+                }
+            }else {
+                if (toneS >= 0.6)
+                {
+                    lightType = "딥(Deep)";
+                }
+                else
+                {
+                    lightType = "뮤트(Mute)";
+                }
+            }
+
+            //깊이 정도
+            deep = (int)Math.Abs(skinColor_cmyk[1] - skinColor_cmyk[2]);
+            //라벨브라이트
+
 
         }
 
