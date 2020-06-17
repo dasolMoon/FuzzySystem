@@ -176,5 +176,20 @@
   <ItemGroup>
     <None Include="Resources\버튼.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\자동.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\수동.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\버튼2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\버튼3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\셋.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

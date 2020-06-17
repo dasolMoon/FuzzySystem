@@ -148,6 +148,12 @@
   <data name="버튼" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\버튼.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="버튼2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\버튼2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="버튼3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\버튼3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="봄웜라이트" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\봄웜라이트.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,6 +162,12 @@
   </data>
   <data name="설리" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\설리.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="셋" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\셋.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="수동" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\수동.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="아이린" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\아이린.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -177,5 +189,8 @@
   </data>
   <data name="이효리" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\이효리.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="자동" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\자동.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

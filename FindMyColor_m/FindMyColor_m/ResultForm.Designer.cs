@@ -90,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(233, 154);
+            this.label3.Location = new System.Drawing.Point(285, 205);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 12);
             this.label3.TabIndex = 2;
@@ -380,20 +380,21 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(238, 174);
+            this.pictureBox2.Image = global::FindMyColor_m.Properties.Resources.여름쿨라이트;
+            this.pictureBox2.Location = new System.Drawing.Point(274, 230);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(501, 270);
+            this.pictureBox2.Size = new System.Drawing.Size(524, 300);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBoxPeople
             // 
-            this.pictureBoxPeople.Image = global::FindMyColor_m.Properties.Resources.설리;
-            this.pictureBoxPeople.Location = new System.Drawing.Point(18, 152);
+            this.pictureBoxPeople.Image = global::FindMyColor_m.Properties.Resources.아이린;
+            this.pictureBoxPeople.Location = new System.Drawing.Point(23, 192);
             this.pictureBoxPeople.Name = "pictureBoxPeople";
-            this.pictureBoxPeople.Size = new System.Drawing.Size(209, 292);
-            this.pictureBoxPeople.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPeople.Size = new System.Drawing.Size(245, 338);
+            this.pictureBoxPeople.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPeople.TabIndex = 0;
             this.pictureBoxPeople.TabStop = false;
             // 
@@ -409,7 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 478);
+            this.ClientSize = new System.Drawing.Size(828, 559);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.labelB);
             this.Controls.Add(this.labelG);

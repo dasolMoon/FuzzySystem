@@ -52,12 +52,16 @@ namespace FindMyColor_m
                 btnRe.Visible = true;
                 btnSkin.Enabled = true;
                 btnSkinSelf.Enabled = true;
+
+                label_notice.Visible = false;
             }
         }
 
-        private void btnRe_Click(object sender, EventArgs e)
+        private void btnRe_Click(object sender, EventArgs e) //다시하기 버튼
         {
+            // 설정 초기화
             skinColor = Color.Empty;
+            originalImage = null;
             pictureBox1.Image = null;
             pictureBox2.BackColor = Color.Empty;
             btnPicture.Visible = true;
@@ -65,11 +69,13 @@ namespace FindMyColor_m
             btnSkin.Enabled = false;
             btnSkinSelf.Enabled = false;
             btnResult.Enabled = false;
+
+            label_notice.Visible = true;
         }
 
-        private void btnSkin_Click(object sender, EventArgs e) // 자동 피부색 선택 ㅇ버튼작업
+        private void btnSkin_Click(object sender, EventArgs e) // 자동 피부색 선택
         {
-            if(pictureBox2 != null) pictureBox2.Image = null;
+            if (pictureBox2 != null) pictureBox2.Image = null;
 
             //피부색 범위 픽셀 추출
             FindMySkin();
@@ -98,13 +104,13 @@ namespace FindMyColor_m
             {
                 btnSkinSelf.Enabled = true;
             }
-            
+
 
         }
 
         private void btnSkinSelf_Click(object sender, EventArgs e) // 직접 피부색 선택
         {
-           if(pictureBox1.Image != null) pictureBox1.Image = originalImage;
+            if (pictureBox1.Image != null) pictureBox1.Image = originalImage;
 
             SkinPickerForm skinPickerForm = new SkinPickerForm(this);
             skinPickerForm.Show();
@@ -198,9 +204,9 @@ namespace FindMyColor_m
             //클러스터별로 사용된 Color 배열 만듦
             int maxCount = int.MinValue;
             int mainCluster = 0;
-            for (int i = 0; i < newU.Count;i++)
+            for (int i = 0; i < newU.Count; i++)
             {
-                if(maxCount < newU[i].Count)
+                if (maxCount < newU[i].Count)
                 {
                     maxCount = newU[i].Count;
                     mainCluster = i;

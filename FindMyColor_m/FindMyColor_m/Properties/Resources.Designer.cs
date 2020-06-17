@@ -163,6 +163,26 @@ namespace FindMyColor_m.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 버튼2 {
+            get {
+                object obj = ResourceManager.GetObject("버튼2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 버튼3 {
+            get {
+                object obj = ResourceManager.GetObject("버튼3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 봄웜라이트 {
             get {
                 object obj = ResourceManager.GetObject("봄웜라이트", resourceCulture);
@@ -186,6 +206,26 @@ namespace FindMyColor_m.Properties {
         internal static System.Drawing.Bitmap 설리 {
             get {
                 object obj = ResourceManager.GetObject("설리", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 셋 {
+            get {
+                object obj = ResourceManager.GetObject("셋", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 수동 {
+            get {
+                object obj = ResourceManager.GetObject("수동", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +296,16 @@ namespace FindMyColor_m.Properties {
         internal static System.Drawing.Bitmap 이효리 {
             get {
                 object obj = ResourceManager.GetObject("이효리", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 자동 {
+            get {
+                object obj = ResourceManager.GetObject("자동", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
