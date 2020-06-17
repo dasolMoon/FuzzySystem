@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Loading1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Loading1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Loading2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Loading2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="가을웜딥" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\가을웜딥.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,8 +139,14 @@
   <data name="김고은" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\김고은.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="메인" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\메인.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="문근영" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\문근영.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="버튼" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\버튼.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="봄웜라이트" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\봄웜라이트.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

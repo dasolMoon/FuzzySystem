@@ -29,3 +29,4 @@ C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_
 C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.csproj.CoreCompileInputs.cache
 C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.exe
 C:\MOONDO\Gitroom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.pdb
+D:\GitRoom\FuzzySystem\FindMyColor_m\FindMyColor_m\obj\Debug\FindMyColor_m.loadingForm.resources

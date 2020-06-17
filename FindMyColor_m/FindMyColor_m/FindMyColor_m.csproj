@@ -47,9 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Colors.cs" />
     <Compile Include="FCM.cs" />
     <Compile Include="InputData.cs" />
+    <Compile Include="loadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loadingForm.Designer.cs">
+      <DependentUpon>loadingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +81,9 @@
     <Compile Include="SkinPickerForm.Designer.cs">
       <DependentUpon>SkinPickerForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="loadingForm.resx">
+      <DependentUpon>loadingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,9 +115,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\지호.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\봄웜라이트.jpg" />
@@ -158,6 +163,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\김고은.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loading1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loading2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\메인.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\버튼.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

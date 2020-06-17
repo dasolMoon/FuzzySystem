@@ -63,6 +63,26 @@ namespace FindMyColor_m.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Loading1 {
+            get {
+                object obj = ResourceManager.GetObject("Loading1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Loading2 {
+            get {
+                object obj = ResourceManager.GetObject("Loading2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 가을웜딥 {
             get {
                 object obj = ResourceManager.GetObject("가을웜딥", resourceCulture);
@@ -113,9 +133,29 @@ namespace FindMyColor_m.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 메인 {
+            get {
+                object obj = ResourceManager.GetObject("메인", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 문근영 {
             get {
                 object obj = ResourceManager.GetObject("문근영", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 버튼 {
+            get {
+                object obj = ResourceManager.GetObject("버튼", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

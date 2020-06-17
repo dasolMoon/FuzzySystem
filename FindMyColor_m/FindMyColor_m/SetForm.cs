@@ -71,11 +71,14 @@ namespace FindMyColor_m
         {
             if(pictureBox2 != null) pictureBox2.Image = null;
 
+            //피부색 범위 픽셀 추출
             FindMySkin();
-            //int temp = MessageBox.Show("클러스터의 갯수를 입력해주세요","클러스터 갯수 입력 ")
 
             if (DialogResult.Yes == MessageBox.Show("추출된 이미지로 피부색 찾기를 진행하겠습니까?", "피부 추청 색 추출 완료", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
+                loadingForm loading = new loadingForm();
+                //로딩 시작
+                loading.Show();
                 InputData input = new InputData(this);
                 double[,] inputData = input.Run();
 
@@ -89,12 +92,14 @@ namespace FindMyColor_m
                 btnSkin.Enabled = false;
                 btnResult.Enabled = true;
 
+                loading.Close();
             }
             else
             {
                 btnSkinSelf.Enabled = true;
             }
-                
+            
+
         }
 
         private void btnSkinSelf_Click(object sender, EventArgs e) // 직접 피부색 선택
@@ -124,6 +129,7 @@ namespace FindMyColor_m
 
         private void FindMySkin() //피부색 찾기
         {
+
             /* 1. 
                 saturation ≥ 0.2
                2.
