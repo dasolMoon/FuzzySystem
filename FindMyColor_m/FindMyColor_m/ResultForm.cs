@@ -16,7 +16,7 @@ namespace FindMyColor_m
         //색상 
         Color skinColor = Color.Empty;
         double[] skinColor_cmyk = null; // cyon magenta yellow black
-       // double[] skinColor_hsl = null;
+        double[] skinColor_hsl = null;
         double[] skinColor_hsv = null;
         string skinColor_hex = null;
 
@@ -62,17 +62,17 @@ namespace FindMyColor_m
             labelY.Text = "" + (skinColor_cmyk[2] * 100).ToString("F0") + "%"; //yellow *100
             labelK.Text = "" + (skinColor_cmyk[3] * 100).ToString("F0") + "%"; //black *100
 
-            /*
+            
             //HSL
             skinColor_hsl = setForm.RgbToHsl(skinColor);
             labelHu.Text = "" + skinColor_hsl[0].ToString("F0") + "º"; //H 색조
             labelSa.Text = "" + (skinColor_hsl[1] * 100).ToString("F0") + "%"; //S *100 채도 
-            labelLu.Text = "" + (skinColor_hsl[2] * 100).ToString("F0") + "%"; //ㅣ *100 
-            */
+            labelL.Text = "" + (skinColor_hsl[2] * 100).ToString("F0") + "%"; //ㅣ *100 
+            
             //HSV
             skinColor_hsv = setForm.RgbToHsv(skinColor);
-            labelHu.Text = "" + skinColor_hsv[0].ToString("F0") + "º"; //H 색조
-            labelSa.Text = "" + (skinColor_hsv[1] * 100).ToString("F0") + "%"; //S *100 채도 
+            //labelHu.Text = "" + skinColor_hsv[0].ToString("F0") + "º"; //H 색조
+            //labelSa.Text = "" + (skinColor_hsv[1] * 100).ToString("F0") + "%"; //S *100 채도 
             labelV.Text = "" + (skinColor_hsv[2] * 100).ToString("F0") + "%"; //ㅣ *100 
 
 
@@ -90,33 +90,6 @@ namespace FindMyColor_m
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private double[] RgbToHsv(Color color) // RGB TO HSV
-        {
-            double hue = color.GetHue();
-            //double saturation = color.GetSaturation();
-            int max = Math.Max(color.R, Math.Max(color.G, color.B));
-            int min = Math.Min(color.R, Math.Min(color.G, color.B));
-
-            double saturation = (max == 0) ? 0 : 1d - (1d * min / max);
-            double value = max / 255d;
-
-            double[] temp = new double[] { hue, saturation, value };
-
-            for (int i = 1; i < temp.Length; i++)
-            {
-                if (temp[i] < 0)
-                {
-                    temp[i] = 0;
-                }
-                else if (temp[i] > 1)
-                {
-                    temp[i] = 1;
-                }
-            }
-
-            return temp;
         }
 
         private string RgbToHex(Color color)
@@ -139,19 +112,19 @@ namespace FindMyColor_m
 
             /*
              <웜톤>
-            High L	High Y	High S	Spring warm bright
-            High L	High Y	Low S	Spring warm light
-            Low L	High Y	Low S	Autumn warm mute
-            Low L	High Y	High S	Autumn warm deep
+            High V	High Y	High S	Spring warm bright
+            High V	High Y	Low S	Spring warm light
+            Low V	High Y	Low S	Autumn warm mute
+            Low V	High Y	High S	Autumn warm deep
             <쿨톤>
-            High L	Low Y	Low S	Summer cool light
-            Low L	Low Y	Low S	Summer cool mute
-            Low L	Low Y	High S	Winter cool deep
-            High L	Low Y	High S	Winter cool bright
+            High V	Low Y	Low S	Summer cool light
+            Low V	Low Y	Low S	Summer cool mute
+            Low V	Low Y	High S	Winter cool deep
+            High V	Low Y	High S	Winter cool bright
              */
 
             /*
-            HIGH LUMINANCE 
+            HIGH VALUE 
             0.65 ~ 1
 
             HIGH SATURATION
@@ -160,7 +133,7 @@ namespace FindMyColor_m
             HIGH YELLOW 
             18.5 ~ 30
 
-            LOW LUMINANCE
+            LOW VALUE
             0 ~ 0.65
 
             LOW SATURATION
@@ -175,8 +148,12 @@ namespace FindMyColor_m
 
             //계절 깊이 구분
             double toneY = skinColor_cmyk[2];
-            double toneS = skinColor_hsv[1];
-            double toneV = skinColor_hsv[2];
+            double toneS = skinColor_hsl[1];
+            double toneV = skinColor_hsl[2];
+
+            //double toneV = skinColor_hsv[1];
+            //double toneV = skinColor_hsv[2];
+
 
 
             // 웜톤, 쿨톤 구분

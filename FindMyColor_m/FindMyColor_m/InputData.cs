@@ -55,12 +55,12 @@ namespace FindMyColor_m
                     if (color.A != 0)
                     {
                         inputColor.Add(color);
-                        double[] tempHsv = setForm.RgbToHsv(color);
                         double[] tempcmyk = setForm.RgbToCmyk(color);
+                        double[] tempHsl = setForm.RgbToHsl(color);
 
+                        tempList.Add(tempHsl[2] *100);
+                        tempList.Add(tempHsl[1] * 100);
 
-                        tempList.Add(tempHsv[2] *100);
-                        tempList.Add(tempHsv[1] * 100);
                         tempList.Add(tempcmyk[2] * 100);
 
                         count++;

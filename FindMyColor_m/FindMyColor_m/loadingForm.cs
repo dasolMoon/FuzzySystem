@@ -5,23 +5,20 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace FindMyColor_m
 {
-    public partial class loadingForm : Form
+    public partial class LoadingForm : Form
     {
-
-
-        public loadingForm()
+        public LoadingForm()
         {
             InitializeComponent();
-
-            button1.BackgroundImage = Properties.Resources.Loading2;
         }
 
+        private void LoadingForm_Load(object sender, EventArgs e)
+        {
+            pictureBox2.BackgroundImage = Properties.Resources.Loading2;
+        }
     }
 }

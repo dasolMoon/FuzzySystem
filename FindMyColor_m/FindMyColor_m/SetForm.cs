@@ -78,8 +78,9 @@ namespace FindMyColor_m
 
             if (DialogResult.Yes == MessageBox.Show("추출된 이미지로 피부색 찾기를 진행하겠습니까?", "피부 추청 색 추출 완료", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
-                loadingForm loading = new loadingForm();
+
                 //로딩 시작
+                LoadingForm loading = new LoadingForm();
                 loading.Show();
                 InputData input = new InputData(this);
                 double[,] inputData = input.Run();
@@ -94,6 +95,7 @@ namespace FindMyColor_m
                 btnSkin.Enabled = false;
                 btnResult.Enabled = true;
 
+                //로딩끝
                 loading.Close();
             }
             else

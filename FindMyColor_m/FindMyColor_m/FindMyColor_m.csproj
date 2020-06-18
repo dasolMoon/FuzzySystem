@@ -49,11 +49,11 @@
   <ItemGroup>
     <Compile Include="FCM.cs" />
     <Compile Include="InputData.cs" />
-    <Compile Include="loadingForm.cs">
+    <Compile Include="LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="loadingForm.Designer.cs">
-      <DependentUpon>loadingForm.cs</DependentUpon>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -81,8 +81,8 @@
     <Compile Include="SkinPickerForm.Designer.cs">
       <DependentUpon>SkinPickerForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="loadingForm.resx">
-      <DependentUpon>loadingForm.cs</DependentUpon>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

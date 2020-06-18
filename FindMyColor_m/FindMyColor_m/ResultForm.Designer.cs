@@ -63,6 +63,7 @@
             this.picTemp = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.labelL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPeople)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -221,7 +222,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("G마켓 산스 TTF Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(585, 136);
+            this.label9.Location = new System.Drawing.Point(322, 136);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(54, 15);
             this.label9.TabIndex = 3;
@@ -232,7 +233,7 @@
             this.labelHex.AutoSize = true;
             this.labelHex.BackColor = System.Drawing.Color.Transparent;
             this.labelHex.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelHex.Location = new System.Drawing.Point(634, 136);
+            this.labelHex.Location = new System.Drawing.Point(371, 136);
             this.labelHex.Name = "labelHex";
             this.labelHex.Size = new System.Drawing.Size(46, 15);
             this.labelHex.TabIndex = 3;
@@ -245,9 +246,9 @@
             this.label10.Font = new System.Drawing.Font("G마켓 산스 TTF Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label10.Location = new System.Drawing.Point(585, 46);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(28, 75);
+            this.label10.Size = new System.Drawing.Size(28, 105);
             this.label10.TabIndex = 3;
-            this.label10.Text = "H :\r\n\r\nS :\r\n\r\nV :";
+            this.label10.Text = "H :\r\n\r\nS :\r\n\r\nV :\r\n\r\nL :";
             // 
             // labelHu
             // 
@@ -309,7 +310,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("G마켓 산스 TTF Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(333, 136);
+            this.label11.Location = new System.Drawing.Point(318, 24);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 15);
             this.label11.TabIndex = 3;
@@ -320,7 +321,7 @@
             this.labelDeep.AutoSize = true;
             this.labelDeep.BackColor = System.Drawing.Color.Transparent;
             this.labelDeep.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelDeep.Location = new System.Drawing.Point(397, 136);
+            this.labelDeep.Location = new System.Drawing.Point(382, 24);
             this.labelDeep.Name = "labelDeep";
             this.labelDeep.Size = new System.Drawing.Size(22, 15);
             this.labelDeep.TabIndex = 3;
@@ -447,6 +448,17 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
+            // labelL
+            // 
+            this.labelL.AutoSize = true;
+            this.labelL.BackColor = System.Drawing.Color.Transparent;
+            this.labelL.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelL.Location = new System.Drawing.Point(619, 134);
+            this.labelL.Name = "labelL";
+            this.labelL.Size = new System.Drawing.Size(48, 15);
+            this.labelL.TabIndex = 3;
+            this.labelL.Text = "100 %";
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -467,6 +479,7 @@
             this.Controls.Add(this.labelM);
             this.Controls.Add(this.labelK);
             this.Controls.Add(this.labelHex);
+            this.Controls.Add(this.labelL);
             this.Controls.Add(this.labelV);
             this.Controls.Add(this.labelY);
             this.Controls.Add(this.labelHu);
@@ -544,5 +557,6 @@
         private System.Windows.Forms.PictureBox picTemp;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label labelL;
     }
 }
