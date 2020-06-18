@@ -124,11 +124,17 @@
   <data name="Loading2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Loading2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="가을" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\가을.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="가을웜딥" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\가을웜딥.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="가을웜뮤트" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\가을웜뮤트.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="겨울" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\겨울.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="겨울쿨딥" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\겨울쿨딥.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,11 +148,23 @@
   <data name="김고은" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\김고은.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="닫기" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\닫기.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="딥" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\딥.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="라이트" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\라이트.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="메인" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\메인.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="문근영" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\문근영.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="뮤트" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\뮤트.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="버튼" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\버튼.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,11 +175,17 @@
   <data name="버튼3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\버튼3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="봄" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\봄.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="봄웜라이트" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\봄웜라이트.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="봄웜브라이트" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\봄웜브라이트.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="브라이트" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\브라이트.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="설리" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\설리.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,11 +202,17 @@
   <data name="아이유" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\아이유.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="여름" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\여름.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="여름쿨라이트" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\여름쿨라이트.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="여름쿨뮤트" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\여름쿨뮤트.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="웜" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\웜.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="이다희" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\이다희.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -195,5 +225,11 @@
   </data>
   <data name="자동" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\자동.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="저장" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\저장.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="쿨" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\쿨.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

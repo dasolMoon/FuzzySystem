@@ -16,7 +16,6 @@ namespace FindMyColor_m
         //색상 
         Color skinColor = Color.Empty;
         double[] skinColor_cmyk = null; // cyon magenta yellow black
-        double[] skinColor_hsv = null;
         double[] skinColor_hsl = null;
         string skinColor_hex = null;
 
@@ -65,12 +64,6 @@ namespace FindMyColor_m
             labelM.Text = "" + (skinColor_cmyk[1] * 100).ToString("F0") + "%"; //magenta *100
             labelY.Text = "" + (skinColor_cmyk[2] * 100).ToString("F0") + "%"; //yellow *100
             labelK.Text = "" + (skinColor_cmyk[3] * 100).ToString("F0") + "%"; //black *100
-
-            //HSV
-            skinColor_hsv = RgbToHsv(skinColor);
-            labelH.Text = "" + skinColor_hsv[0].ToString("F0") + "º"; //H 색조
-            labelS.Text = "" + (skinColor_hsv[1] * 100).ToString("F0") + "%"; //S *100 채도 
-            labelV.Text = "" + (skinColor_hsv[2] * 100).ToString("F0") + "%"; //V *100 값 
 
             //HLS
             skinColor_hsl = setForm.RgbToHsl(skinColor);
@@ -127,42 +120,6 @@ namespace FindMyColor_m
             return color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
         }
 
-        /*
-
-        private Color ColorFromHSV(double hue, double saturation, double value) // HSV TO RGB
-        {
-            int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
-            double f = hue / 60 - Math.Floor(hue / 60);
-
-            value = value * 255;
-            int v = Convert.ToInt32(value);
-            int p = Convert.ToInt32(value * (1 - saturation));
-            int q = Convert.ToInt32(value * (1 - f * saturation));
-            int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
-
-            if (hi == 0)
-                return Color.FromArgb(v, t, p);
-            else if (hi == 1)
-                return Color.FromArgb(q, v, p);
-            else if (hi == 2)
-                return Color.FromArgb(p, v, t);
-            else if (hi == 3)
-                return Color.FromArgb(p, q, v);
-            else if (hi == 4)
-                return Color.FromArgb(t, p, v);
-            else
-                return Color.FromArgb(v, p, q);
-        }
-        private Color colorFromCmyk(double cyan, double magenta, double yellow, double black) // CMYK TO RGB
-        {
-            byte red = Convert.ToByte((1 - Math.Min(1, cyan * (1 - black) + black)) * 255);
-            byte green = Convert.ToByte((1 - Math.Min(1, magenta * (1 - black) + black)) * 255);
-            byte blue = Convert.ToByte((1 - Math.Min(1, yellow * (1 - black) + black)) * 255);
-            
-
-            return Color.FromArgb(red, green, blue);
-        }
-        */
         private void SetMyPersonalColor()
         {
             /* 1. 
@@ -222,105 +179,109 @@ namespace FindMyColor_m
             if (toneY*100 >= 18.5) 
             {
                 tempType = "웜(Warm)";
-                if(toneL >= 0.70)
+                picTemp.Image = Properties.Resources.웜;
+                if (toneL >= 0.70)
                 {
                     seasonType = "봄(Spring)";
+                    picSeason.Image = Properties.Resources.봄;
                     if (toneS >= 0.25)
                     {
                         lightType = "브라이트(Bright)";
+                        picLight.Image = Properties.Resources.브라이트;
                         pictureBox2.Image = Properties.Resources.봄웜브라이트;
                         pictureBoxPeople.Image = Properties.Resources.아이유;
                         labelName.Text = "아이유";
-                        this.BackColor = Color.Orange;
+                        this.BackColor = Color.FromArgb(255, 202, 56);
                     }
                     else
                     {
                         lightType = "라이트(Light)";
                         pictureBox2.Image = Properties.Resources.봄웜라이트;
+                        picLight.Image = Properties.Resources.라이트;
                         pictureBoxPeople.Image = Properties.Resources.설리;
-                        labelName.Text = "설리";
+                        labelName.Text = "설리"; 
+                        this.BackColor = Color.Pink;
                     }
                 }
                 else
                 {
                     seasonType = "가을(Autumn)";
+                    picSeason.Image = Properties.Resources.가을;
                     if (toneS >= 0.25)
                     {
                         lightType = "딥(Deep)";
                         pictureBox2.Image = Properties.Resources.가을웜딥;
+                        picLight.Image = Properties.Resources.딥;
                         pictureBoxPeople.Image = Properties.Resources.이효리;
                         labelName.Text = "이효리";
+                        this.BackColor = Color.FromArgb(47, 16, 24);
+                        this.ForeColor = Color.White;
                     }
                     else
                     {
                         lightType = "뮤트(Mute)";
+
+                        picLight.Image = Properties.Resources.뮤트;
                         pictureBox2.Image = Properties.Resources.가을웜뮤트;
                         pictureBoxPeople.Image = Properties.Resources.이성경;
-                        labelName.Text = "이성경";
+                        labelName.Text = "이성경"; 
+                        this.BackColor = Color.FromArgb(152, 121, 92);
                     }
                 }
             }
             else 
             {
                 tempType = "쿨(Cool)";
+                picTemp.Image = Properties.Resources.쿨;
                 if(toneS >= 0.25)
                 {
                     seasonType = "겨울(Winter)";
-                    if(toneL >= 0.70)
+                    picSeason.Image = Properties.Resources.겨울;
+                    if (toneL >= 0.70)
                     {
                         lightType = "브라이트(Bright)";
                         pictureBox2.Image = Properties.Resources.겨울쿨브라이트;
+                        picLight.Image = Properties.Resources.브라이트;
                         pictureBoxPeople.Image = Properties.Resources.이다희;
                         labelName.Text = "이다희";
+                        this.BackColor = Color.FromArgb(0, 29, 113);
+                        this.ForeColor = Color.White;
                     }
                     else
                     {
                         lightType = "딥(Deep)";
                         pictureBox2.Image = Properties.Resources.겨울쿨딥;
+                        picLight.Image = Properties.Resources.딥;
                         pictureBoxPeople.Image = Properties.Resources.문근영;
                         labelName.Text = "문근영";
+                        this.BackColor = Color.FromArgb(54, 61, 78);
+                        this.ForeColor = Color.White;
                     }
                 }
                 else
                 {
                     seasonType = "여름(Summer)";
+                    picSeason.Image = Properties.Resources.여름;
                     if (toneL >= 0.70)
                     {
                         lightType = "라이트(Light)";
                         pictureBox2.Image = Properties.Resources.여름쿨라이트;
+                        picLight.Image = Properties.Resources.라이트;
                         pictureBoxPeople.Image = Properties.Resources.아이린;
                         labelName.Text = "아이린";
+                        this.BackColor = Color.FromArgb(155, 197, 255);
                     }
                     else
                     {
                         lightType = "뮤트(Mute)";
                         pictureBox2.Image = Properties.Resources.여름쿨뮤트;
+                        picLight.Image = Properties.Resources.뮤트;
                         pictureBoxPeople.Image = Properties.Resources.김고은;
                         labelName.Text = "김고은";
+                        this.BackColor = Color.FromArgb(177, 122, 141);
                     }
                 }
             }
-            /*
-            //bright 구분
-            if (toneL >= 0.6) {
-                if(toneS >= 0.3)
-                {
-                    lightType = "브라이트(Bright)";
-                }
-                else
-                {
-                    lightType= "라이트(Light)"; 
-                }
-            }else {
-                if (toneS >= 0.3)
-                {
-                    lightType = "딥(Deep)";
-                }
-                else
-                {
-                    lightType = "뮤트(Mute)";
-                }
-            }*/
 
             //깊이 정도
             deep = (int)Math.Abs(skinColor_cmyk[1] - skinColor_cmyk[2]);
@@ -330,6 +291,24 @@ namespace FindMyColor_m
             labelTemp.Text = tempType;
             labelLight.Text = lightType;
 
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            using (Bitmap bitmap = new Bitmap(this.Width, this.Height))
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string strFilename = saveFileDialog.FileName + ".jpg";
+                    this.DrawToBitmap(bitmap, new Rectangle(0, 0, this.Width, this.Height));
+                    bitmap.Save(@strFilename);
+
+                    MessageBox.Show("파일이 "+ strFilename+"으로 저장되었습니다.", "저장 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+       
         }
     }
 }

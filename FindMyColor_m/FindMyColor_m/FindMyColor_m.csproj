@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{51337EA7-E138-48EF-B865-80E8063B3FDF}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>FindMyColor_m</RootNamespace>
     <AssemblyName>FindMyColor_m</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -141,9 +141,6 @@
     <None Include="Resources\겨울쿨브라이트.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\설리.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\이효리.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +190,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\아이유.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\봄.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\웜.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\브라이트.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\닫기.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\저장.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\설리.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\라이트.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\가을.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\딥.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\뮤트.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\여름.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\쿨.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\겨울.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

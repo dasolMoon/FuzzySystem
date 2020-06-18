@@ -83,6 +83,16 @@ namespace FindMyColor_m.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 가을 {
+            get {
+                object obj = ResourceManager.GetObject("가을", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 가을웜딥 {
             get {
                 object obj = ResourceManager.GetObject("가을웜딥", resourceCulture);
@@ -96,6 +106,16 @@ namespace FindMyColor_m.Properties {
         internal static System.Drawing.Bitmap 가을웜뮤트 {
             get {
                 object obj = ResourceManager.GetObject("가을웜뮤트", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 겨울 {
+            get {
+                object obj = ResourceManager.GetObject("겨울", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,6 +163,36 @@ namespace FindMyColor_m.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 닫기 {
+            get {
+                object obj = ResourceManager.GetObject("닫기", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 딥 {
+            get {
+                object obj = ResourceManager.GetObject("딥", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 라이트 {
+            get {
+                object obj = ResourceManager.GetObject("라이트", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 메인 {
             get {
                 object obj = ResourceManager.GetObject("메인", resourceCulture);
@@ -156,6 +206,16 @@ namespace FindMyColor_m.Properties {
         internal static System.Drawing.Bitmap 문근영 {
             get {
                 object obj = ResourceManager.GetObject("문근영", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 뮤트 {
+            get {
+                object obj = ResourceManager.GetObject("뮤트", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,6 +253,16 @@ namespace FindMyColor_m.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 봄 {
+            get {
+                object obj = ResourceManager.GetObject("봄", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 봄웜라이트 {
             get {
                 object obj = ResourceManager.GetObject("봄웜라이트", resourceCulture);
@@ -206,6 +276,16 @@ namespace FindMyColor_m.Properties {
         internal static System.Drawing.Bitmap 봄웜브라이트 {
             get {
                 object obj = ResourceManager.GetObject("봄웜브라이트", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 브라이트 {
+            get {
+                object obj = ResourceManager.GetObject("브라이트", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,6 +343,16 @@ namespace FindMyColor_m.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 여름 {
+            get {
+                object obj = ResourceManager.GetObject("여름", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 여름쿨라이트 {
             get {
                 object obj = ResourceManager.GetObject("여름쿨라이트", resourceCulture);
@@ -276,6 +366,16 @@ namespace FindMyColor_m.Properties {
         internal static System.Drawing.Bitmap 여름쿨뮤트 {
             get {
                 object obj = ResourceManager.GetObject("여름쿨뮤트", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 웜 {
+            get {
+                object obj = ResourceManager.GetObject("웜", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +416,26 @@ namespace FindMyColor_m.Properties {
         internal static System.Drawing.Bitmap 자동 {
             get {
                 object obj = ResourceManager.GetObject("자동", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 저장 {
+            get {
+                object obj = ResourceManager.GetObject("저장", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 쿨 {
+            get {
+                object obj = ResourceManager.GetObject("쿨", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
