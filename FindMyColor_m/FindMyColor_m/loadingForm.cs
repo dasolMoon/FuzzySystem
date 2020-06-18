@@ -20,7 +20,7 @@ namespace FindMyColor_m
         {
             InitializeComponent();
 
-
+            button1.BackgroundImage = Properties.Resources.Loading2;
         }
 
     }

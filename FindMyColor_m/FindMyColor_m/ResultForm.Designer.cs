@@ -46,7 +46,7 @@
             this.labelHex = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.labelHu = new System.Windows.Forms.Label();
-            this.labelLu = new System.Windows.Forms.Label();
+            this.labelV = new System.Windows.Forms.Label();
             this.labelSa = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.labelTemp = new System.Windows.Forms.Label();
@@ -247,7 +247,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(28, 75);
             this.label10.TabIndex = 3;
-            this.label10.Text = "H :\r\n\r\nS :\r\n\r\nL :";
+            this.label10.Text = "H :\r\n\r\nS :\r\n\r\nV :";
             // 
             // labelHu
             // 
@@ -260,16 +260,16 @@
             this.labelHu.TabIndex = 3;
             this.labelHu.Text = "100 º";
             // 
-            // labelLu
+            // labelV
             // 
-            this.labelLu.AutoSize = true;
-            this.labelLu.BackColor = System.Drawing.Color.Transparent;
-            this.labelLu.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.labelLu.Location = new System.Drawing.Point(619, 105);
-            this.labelLu.Name = "labelLu";
-            this.labelLu.Size = new System.Drawing.Size(48, 15);
-            this.labelLu.TabIndex = 3;
-            this.labelLu.Text = "100 %";
+            this.labelV.AutoSize = true;
+            this.labelV.BackColor = System.Drawing.Color.Transparent;
+            this.labelV.Font = new System.Drawing.Font("G마켓 산스 TTF Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelV.Location = new System.Drawing.Point(619, 105);
+            this.labelV.Name = "labelV";
+            this.labelV.Size = new System.Drawing.Size(48, 15);
+            this.labelV.TabIndex = 3;
+            this.labelV.Text = "100 %";
             // 
             // labelSa
             // 
@@ -297,10 +297,10 @@
             // 
             this.labelTemp.AutoSize = true;
             this.labelTemp.BackColor = System.Drawing.Color.Transparent;
-            this.labelTemp.Font = new System.Drawing.Font("Tmon몬소리 Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.labelTemp.Location = new System.Drawing.Point(471, 168);
             this.labelTemp.Name = "labelTemp";
-            this.labelTemp.Size = new System.Drawing.Size(61, 24);
+            this.labelTemp.Size = new System.Drawing.Size(55, 24);
             this.labelTemp.TabIndex = 2;
             this.labelTemp.Text = "어떤톤";
             // 
@@ -372,10 +372,10 @@
             // 
             this.labelLight.AutoSize = true;
             this.labelLight.BackColor = System.Drawing.Color.Transparent;
-            this.labelLight.Font = new System.Drawing.Font("Tmon몬소리 Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelLight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.labelLight.Location = new System.Drawing.Point(596, 168);
             this.labelLight.Name = "labelLight";
-            this.labelLight.Size = new System.Drawing.Size(61, 24);
+            this.labelLight.Size = new System.Drawing.Size(55, 24);
             this.labelLight.TabIndex = 2;
             this.labelLight.Text = "어떤톤";
             // 
@@ -394,10 +394,10 @@
             // 
             this.labelseason.AutoSize = true;
             this.labelseason.BackColor = System.Drawing.Color.Transparent;
-            this.labelseason.Font = new System.Drawing.Font("Tmon몬소리 Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelseason.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.labelseason.Location = new System.Drawing.Point(349, 168);
             this.labelseason.Name = "labelseason";
-            this.labelseason.Size = new System.Drawing.Size(44, 24);
+            this.labelseason.Size = new System.Drawing.Size(40, 24);
             this.labelseason.TabIndex = 2;
             this.labelseason.Text = "아무";
             // 
@@ -467,7 +467,7 @@
             this.Controls.Add(this.labelM);
             this.Controls.Add(this.labelK);
             this.Controls.Add(this.labelHex);
-            this.Controls.Add(this.labelLu);
+            this.Controls.Add(this.labelV);
             this.Controls.Add(this.labelY);
             this.Controls.Add(this.labelHu);
             this.Controls.Add(this.labelC);
@@ -529,7 +529,7 @@
         private System.Windows.Forms.Label labelHex;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelHu;
-        private System.Windows.Forms.Label labelLu;
+        private System.Windows.Forms.Label labelV;
         private System.Windows.Forms.Label labelSa;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label labelTemp;

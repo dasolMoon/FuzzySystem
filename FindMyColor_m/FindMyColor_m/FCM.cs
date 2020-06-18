@@ -3,19 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 /*
- * 2020.06.12
- * FCM을 실행하는 클래스
- * InputData클래스에서 inputData를 가져온 후 FCM작업을 수행한다
- * 1.전체(U)행렬 초기화 
- * 2.클러스터 중심백터 계산
- * 3.전체(U)행렬 업데이트 
- * 4.UU(k+1) - UU(k)< (임계값)이면 정지, 아니면 2단계로 돌아가 반복
- *                                        
- *  2020.06.17
- *  FCM이 종료된 시점에서 어떤 클러스터의 값이 가장많은지 선택하고
- *  해당 클러스터의 색상을 가져와야함
- *  현재 클러스터 갯수 : 2개
- */
+    FCM 클래스 
+*/
 namespace FindMyColor_m
 {
     class FCM
@@ -93,7 +82,6 @@ namespace FindMyColor_m
             }
         }
 
-
         private void SetNewU()//새로운 소속행렬 구성
         {
             double[,] dw = new double[dataCount, CLUSTER];
@@ -130,65 +118,6 @@ namespace FindMyColor_m
                     u[i, j] = (dw[i, j] / wsum);
                 }
             }
-
-            /*
-            for (int i = 0; i < dataCount; i++)
-            {
-                for (int k = 0; k < CLUSTER; k++)
-                {
-                    double temp = 1 / Math.Pow(Distance(inputData[i, 0], inputData[i, 1], centroid[k, 0], centroid[k, 1]), 2 / (M - 1));
-                    if (double.IsNaN(temp)) //만약 0으로 나누는 경우가 생겨 값이 무한대가 된다면
-                    {                       //숫자가 아니라면 
-                        temp = 1;           //해당 계산값을 1로 설정한다.
-                    }
-
-                    double sum = 0;
-                    for (int j = 0; j < CLUSTER; j++)
-                    {
-                        double temp2 = Distance(centroid[j, 0], centroid[j, 1], centroid[k, 0], centroid[k, 1]);
-                        double temp3 = 1 /  Math.Pow(temp2, 2 / (M - 1));
-                        if (double.IsNaN(temp3)) //만약 0으로 나누는 경우가 생겨 값이 무한대가 된다면
-                        {                       //숫자가 아니라면 
-                            temp3 = 1;           //해당 계산값을 1로 설정한다.
-                        }
-
-                        sum += temp3;
-
-                    }
-                    u[i, k] = temp / sum;
-
-                }
-            }*/
-
-            /*
-            for (int i = 0; i < dataCount; i++)
-            { // i번째 데이터 Xi
-                for (int j = 0; j < CLUSTER; j++)
-                {// j번째 클러스터 Cj
-                    double sum = 0;
-                    for (int k = 0; k < CLUSTER; k++)
-                    {//분모를 위한 k번째 클러스터 Ck
-                        double numerator = Distance(inputData[i, 0], inputData[i, 1], centroid[j, 0], centroid[j, 0]); //클러스터 개수 바뀌면 수정
-                        double denominator = Distance(inputData[i,0], inputData[i,1], centroid[k,0], centroid[k,1]);
-                        double temp = Math.Pow((numerator / denominator), (2 / (M - 1)));
-
-                        if (double.IsNaN(temp)) //만약 0으로 나누는 경우가 생겨 값이 무한대가 된다면
-                        {                       //숫자가 아니라면 
-                            temp = 1;           //해당 계산값을 1로 설정한다.
-                        }
-
-                        sum += temp;
-                    }
-                    u[i, j] = 1 / sum;
-                }
-            }*/
-        }
-
-        private double Distance(double x1, double y1, double x2, double y2)//Data1과 Data2 거리 계산
-        {
-            //  return Math.Sqrt(Math.Pow(x2 - x1, 2.0) + Math.Pow(y2 - y1, 2.0));
-            return Math.Pow(x2 - x1, 2.0) + Math.Pow(y2 - y1, 2.0);
-
         }
 
         private void Comparison() //종료조건을 만족하는지 검사 
@@ -219,25 +148,6 @@ namespace FindMyColor_m
 
         public double[,] GetResult()
         {
-            /*
-            string temp = null;
-
-            for (int k = 0; k < CLUSTER; k++)
-            {
-                temp += "[ " + (k + 1) + "번째 클러스터 ] \r\n\r\ncentroid x : " + inputData[k, 0] + " y : " + inputData[k, 1];
-                int count = 0;
-                for (int i = 0; i < dataCount; i++)
-                {
-                    if (u[i, k] != 0)
-                    {
-                        temp += "\r\n\r\n" + ++count + "번째 데이터\r\n소속도 : " + u[i, k] + "\r\nx : " + inputData[i, 0] + "\r\ny : " + inputData[i, 1] + "\r\n";
-                    }
-                }
-                temp += "\r\n\r\n\r\n";
-            }
-
-            return temp;*/
-
             return u;
         }
     }

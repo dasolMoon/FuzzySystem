@@ -21,12 +21,8 @@ namespace FindMyColor_m
             InitializeComponent();
 
             this.mainForm = mainForm;
-            Init();
         }
-        void Init() //초기 설정
-        {
 
-        }
         private void SetForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Mainform을 Visible = false로 설정했기 때문에 
@@ -116,7 +112,6 @@ namespace FindMyColor_m
             skinPickerForm.Show();
             this.Visible = false;
             btnResult.Enabled = true;
-            //btnSkin.Enabled = false;
         }
 
         private void btnResult_Click(object sender, EventArgs e)
@@ -133,19 +128,11 @@ namespace FindMyColor_m
             }
         }
 
-        private void FindMySkin() //피부색 찾기
+        private void FindMySkin() //피부색 구간에 포함되는 픽셀을 가져옴
         {
-
-            /* 1. 
-                saturation ≥ 0.2
-               2.
-                hue ≤ 28° || hue ≥ 330°
-               3.
-                0.5 ≤ luminance/saturation ≤ 3.0*/
-
             Bitmap originImage = new Bitmap(pictureBox1.Image);
             Bitmap skinBitmap = new Bitmap(originImage.Width, originImage.Height);
-            // Bitmap[,] temp = new Bitmap[originImage.Height,originImage.Width];
+
             for (int y = 0; y < originImage.Height; y++)
             {
                 for (int x = 0; x < originImage.Width; x++)
@@ -164,7 +151,6 @@ namespace FindMyColor_m
                             }
                         }
                     }
-
                 }
             }//피부 검출 완료
 
@@ -176,7 +162,7 @@ namespace FindMyColor_m
             pictureBox2.BackColor = color;
             this.Visible = true;
         }
-        private Color MyRealSkin(double[,] u)
+        private Color MyRealSkin(double[,] u) //FCM이후 가중치배열을 이용하여 피검사자의 피부색을 검출한다
         {
             List<List<Color>> newU = new List<List<Color>>(u.GetLength(1));
             for (int i = 0; i < u.GetLength(1); i++)
@@ -185,7 +171,7 @@ namespace FindMyColor_m
                 newU.Add(tempList);
             }
 
-
+            //가장 많은 값이 속한 클러스터 계산
             for (int i = 0; i < u.GetLength(0); i++)
             {
                 double max = double.MinValue;
@@ -227,11 +213,6 @@ namespace FindMyColor_m
             b = b / newU[mainCluster].Count;
 
             return Color.FromArgb(r, g, b);
-        }
-
-        public void WhenResultFormClosed()
-        {
-            this.Close();
         }
 
         public double[] RgbToHsl(Color color) // RGB TO HSL
@@ -304,6 +285,23 @@ namespace FindMyColor_m
             }
 
             return temp;
+        }
+
+        public double[] RgbToHsv(Color color)
+        {
+            int max = Math.Max(color.R, Math.Max(color.G, color.B));
+            int min = Math.Min(color.R, Math.Min(color.G, color.B));
+
+            double hue = color.GetHue();
+            double saturation = (max == 0) ? 0 : 1d - (1d * min / max);
+            double value = max / 255d;
+
+            return new double[] { hue, saturation, value };
+        }
+
+        public void WhenResultFormClosed()
+        {
+            this.Close();
         }
     }
 }

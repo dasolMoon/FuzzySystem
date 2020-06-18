@@ -16,7 +16,8 @@ namespace FindMyColor_m
         //색상 
         Color skinColor = Color.Empty;
         double[] skinColor_cmyk = null; // cyon magenta yellow black
-        double[] skinColor_hsl = null;
+       // double[] skinColor_hsl = null;
+        double[] skinColor_hsv = null;
         string skinColor_hex = null;
 
         //퍼스널 컬러
@@ -25,10 +26,6 @@ namespace FindMyColor_m
         string lightType = null;
         string seasonType = null;
         int deep = 0;
-
-        //추천
-
-
 
         public ResultForm(SetForm setForm)
         {
@@ -65,11 +62,18 @@ namespace FindMyColor_m
             labelY.Text = "" + (skinColor_cmyk[2] * 100).ToString("F0") + "%"; //yellow *100
             labelK.Text = "" + (skinColor_cmyk[3] * 100).ToString("F0") + "%"; //black *100
 
-            //HLS
+            /*
+            //HSL
             skinColor_hsl = setForm.RgbToHsl(skinColor);
             labelHu.Text = "" + skinColor_hsl[0].ToString("F0") + "º"; //H 색조
             labelSa.Text = "" + (skinColor_hsl[1] * 100).ToString("F0") + "%"; //S *100 채도 
             labelLu.Text = "" + (skinColor_hsl[2] * 100).ToString("F0") + "%"; //ㅣ *100 
+            */
+            //HSV
+            skinColor_hsv = setForm.RgbToHsv(skinColor);
+            labelHu.Text = "" + skinColor_hsv[0].ToString("F0") + "º"; //H 색조
+            labelSa.Text = "" + (skinColor_hsv[1] * 100).ToString("F0") + "%"; //S *100 채도 
+            labelV.Text = "" + (skinColor_hsv[2] * 100).ToString("F0") + "%"; //ㅣ *100 
 
 
             //HEX
@@ -171,8 +175,8 @@ namespace FindMyColor_m
 
             //계절 깊이 구분
             double toneY = skinColor_cmyk[2];
-            double toneS = skinColor_hsl[1];
-            double toneL = skinColor_hsl[2];
+            double toneS = skinColor_hsv[1];
+            double toneV = skinColor_hsv[2];
 
 
             // 웜톤, 쿨톤 구분
@@ -180,11 +184,11 @@ namespace FindMyColor_m
             {
                 tempType = "웜(Warm)";
                 picTemp.Image = Properties.Resources.웜;
-                if (toneL >= 0.70)
+                if (toneV >= 0.652)
                 {
                     seasonType = "봄(Spring)";
                     picSeason.Image = Properties.Resources.봄;
-                    if (toneS >= 0.25)
+                    if (toneS >= 0.33)
                     {
                         lightType = "브라이트(Bright)";
                         picLight.Image = Properties.Resources.브라이트;
@@ -207,7 +211,7 @@ namespace FindMyColor_m
                 {
                     seasonType = "가을(Autumn)";
                     picSeason.Image = Properties.Resources.가을;
-                    if (toneS >= 0.25)
+                    if (toneS >= 0.33)
                     {
                         lightType = "딥(Deep)";
                         pictureBox2.Image = Properties.Resources.가을웜딥;
@@ -233,11 +237,11 @@ namespace FindMyColor_m
             {
                 tempType = "쿨(Cool)";
                 picTemp.Image = Properties.Resources.쿨;
-                if(toneS >= 0.25)
+                if(toneS >= 0.33)
                 {
                     seasonType = "겨울(Winter)";
                     picSeason.Image = Properties.Resources.겨울;
-                    if (toneL >= 0.70)
+                    if (toneV >= 0.652)
                     {
                         lightType = "브라이트(Bright)";
                         pictureBox2.Image = Properties.Resources.겨울쿨브라이트;
@@ -262,7 +266,7 @@ namespace FindMyColor_m
                 {
                     seasonType = "여름(Summer)";
                     picSeason.Image = Properties.Resources.여름;
-                    if (toneL >= 0.70)
+                    if (toneV >= 0.652)
                     {
                         lightType = "라이트(Light)";
                         pictureBox2.Image = Properties.Resources.여름쿨라이트;
