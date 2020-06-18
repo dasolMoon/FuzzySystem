@@ -51,9 +51,9 @@ namespace FindMyColor_m
 
                 label_notice.Visible = false;
             }
-        }
+        } // 파일 불러오기 클릭
 
-        private void btnRe_Click(object sender, EventArgs e) //다시하기 버튼
+        private void btnRe_Click(object sender, EventArgs e) //다시하기 버튼 클릭
         {
             // 설정 초기화
             skinColor = Color.Empty;
@@ -79,9 +79,9 @@ namespace FindMyColor_m
             if (DialogResult.Yes == MessageBox.Show("추출된 이미지로 피부색 찾기를 진행하겠습니까?", "피부 추청 색 추출 완료", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
 
-                //로딩 시작
+               /* //로딩 시작
                 LoadingForm loading = new LoadingForm();
-                loading.Show();
+                loading.Show();*/
                 InputData input = new InputData(this);
                 double[,] inputData = input.Run();
 
@@ -96,7 +96,7 @@ namespace FindMyColor_m
                 btnResult.Enabled = true;
 
                 //로딩끝
-                loading.Close();
+                //loading.Close();
             }
             else
             {
@@ -164,8 +164,10 @@ namespace FindMyColor_m
             pictureBox2.BackColor = color;
             this.Visible = true;
         }
-        private Color MyRealSkin(double[,] u) //FCM이후 가중치배열을 이용하여 피검사자의 피부색을 검출한다
-        {
+        private Color MyRealSkin(double[,] u) 
+        {//FCM이후 가중치배열을 이용하여 피검사자의 피부색을 검출한다
+
+            //순서대로 값을 담아줄 list
             List<List<Color>> newU = new List<List<Color>>(u.GetLength(1));
             for (int i = 0; i < u.GetLength(1); i++)
             {

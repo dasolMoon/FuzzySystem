@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FindMyColor_m
@@ -14,11 +15,8 @@ namespace FindMyColor_m
         public LoadingForm()
         {
             InitializeComponent();
+           // pictureBox1.Image= Image.FromFile(@"../../resources/Loading2.gif");
         }
 
-        private void LoadingForm_Load(object sender, EventArgs e)
-        {
-            pictureBox2.BackgroundImage = Properties.Resources.Loading2;
-        }
     }
 }

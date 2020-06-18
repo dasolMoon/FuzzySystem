@@ -99,51 +99,7 @@ namespace FindMyColor_m
 
         private void SetMyPersonalColor()
         {
-            /* 1. 
-                saturation ≥ 0.2
-               2.
-                hue ≤ 28° ||hue ≥ 330°
-               3.
-                0.5 ≤ luminance/saturation ≤ 3.0
-             
-               santuration.min == 0.2 ; 
-               0<=hue<=28  ||  330<=hue<=359
-             */
-
-            /*
-             <웜톤>
-            High V	High Y	High S	Spring warm bright
-            High V	High Y	Low S	Spring warm light
-            Low V	High Y	Low S	Autumn warm mute
-            Low V	High Y	High S	Autumn warm deep
-            <쿨톤>
-            High V	Low Y	Low S	Summer cool light
-            Low V	Low Y	Low S	Summer cool mute
-            Low V	Low Y	High S	Winter cool deep
-            High V	Low Y	High S	Winter cool bright
-             */
-
-            /*
-            HIGH VALUE 
-            0.65 ~ 1
-
-            HIGH SATURATION
-            0.33 ~1
-
-            HIGH YELLOW 
-            18.5 ~ 30
-
-            LOW VALUE
-            0 ~ 0.65
-
-            LOW SATURATION
-            0.2 ~ 0.33
-
-            LOW YELLOW 
-            0.5 ~ 18.5
-             */
-
-            //깊이 표현
+            // 쿨 - 웜톤 깊이 표현
             labelDeep.Text = (deep * 100).ToString("F0");
 
             //계절 깊이 구분
@@ -214,11 +170,11 @@ namespace FindMyColor_m
             {
                 tempType = "쿨(Cool)";
                 picTemp.Image = Properties.Resources.쿨;
-                if(toneS >= 0.33)
+                if(toneS >= 0.25)
                 {
                     seasonType = "겨울(Winter)";
                     picSeason.Image = Properties.Resources.겨울;
-                    if (toneV >= 0.652)
+                    if (toneV >= 0.70)
                     {
                         lightType = "브라이트(Bright)";
                         pictureBox2.Image = Properties.Resources.겨울쿨브라이트;

@@ -33,6 +33,8 @@ namespace FindMyColor_m
         
         public void Run(double[,] inputData) //FCM 핵심 메소드 Run
         {
+            LoadingForm loading = new LoadingForm();
+            loading.Show();
             this.inputData = inputData;
             dataCount = inputData.GetLength(0);
 
@@ -60,7 +62,8 @@ namespace FindMyColor_m
                 Comparison();
             } while (replay);//종료조건에 맞지 않으면 반복
 
-            Console.WriteLine("종료");
+            //Console.WriteLine("종료");
+            loading.Close();
         }
 
         private void SetCentroid()// 각 클러스터에 대한 중심 벡터 계산
@@ -84,7 +87,7 @@ namespace FindMyColor_m
 
         private void SetNewU()//새로운 소속행렬 구성
         {
-            double[,] dw = new double[dataCount, CLUSTER];
+            double[,] didtanceWeight = new double[dataCount, CLUSTER];
 
             /* new weight */
             for (int i = 0; i < CLUSTER; i++)
@@ -93,14 +96,14 @@ namespace FindMyColor_m
                 {
                     for (int k = 0; k < INPUT_TYPE; k++)
                     {
-                        dw[j, i] += Math.Pow((inputData[j, k] - centroid[i, k]), 2);
+                        didtanceWeight[j, i] += Math.Pow((inputData[j, k] - centroid[i, k]), 2);
                     }
 
-                    dw[j, i] = 1 / dw[j, i];
+                    didtanceWeight[j, i] = 1 / didtanceWeight[j, i];
 
-                    if (dw[j, i].Equals(double.NaN))
+                    if (didtanceWeight[j, i].Equals(double.NaN))
                     {
-                        dw[j, i] = 1;
+                        didtanceWeight[j, i] = 1;
                     }
                 }
             }
@@ -112,10 +115,10 @@ namespace FindMyColor_m
                     double wsum = 0;
                     for (int k = 0; k < CLUSTER; k++)
                     {
-                        wsum += dw[i, k];
+                        wsum += didtanceWeight[i, k];
                     }
 
-                    u[i, j] = (dw[i, j] / wsum);
+                    u[i, j] = (didtanceWeight[i, j] / wsum);
                 }
             }
         }

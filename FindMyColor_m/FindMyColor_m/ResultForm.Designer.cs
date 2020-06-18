@@ -116,7 +116,7 @@
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(57, 19);
             this.labelName.TabIndex = 2;
-            this.labelName.Text = "아이린";
+            this.labelName.Text = "문근영";
             // 
             // label2
             // 
@@ -329,7 +329,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::FindMyColor_m.Properties.Resources.여름쿨라이트;
+            this.pictureBox2.Image = global::FindMyColor_m.Properties.Resources.겨울쿨딥;
             this.pictureBox2.Location = new System.Drawing.Point(293, 218);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(500, 281);
@@ -340,7 +340,7 @@
             // pictureBoxPeople
             // 
             this.pictureBoxPeople.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxPeople.Image = global::FindMyColor_m.Properties.Resources.아이린;
+            this.pictureBoxPeople.Image = global::FindMyColor_m.Properties.Resources.문근영;
             this.pictureBoxPeople.Location = new System.Drawing.Point(36, 201);
             this.pictureBoxPeople.Name = "pictureBoxPeople";
             this.pictureBoxPeople.Size = new System.Drawing.Size(232, 307);
@@ -355,13 +355,14 @@
             this.pictureBox1.Location = new System.Drawing.Point(326, 61);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(65, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // picSeason
             // 
             this.picSeason.BackColor = System.Drawing.Color.Transparent;
-            this.picSeason.Image = global::FindMyColor_m.Properties.Resources.여름;
+            this.picSeason.Image = global::FindMyColor_m.Properties.Resources.겨울;
             this.picSeason.Location = new System.Drawing.Point(23, 13);
             this.picSeason.Name = "picSeason";
             this.picSeason.Size = new System.Drawing.Size(137, 89);
@@ -405,7 +406,7 @@
             // picLight
             // 
             this.picLight.BackColor = System.Drawing.Color.Transparent;
-            this.picLight.Image = global::FindMyColor_m.Properties.Resources.라이트;
+            this.picLight.Image = global::FindMyColor_m.Properties.Resources.딥;
             this.picLight.Location = new System.Drawing.Point(23, 108);
             this.picLight.Name = "picLight";
             this.picLight.Size = new System.Drawing.Size(176, 59);
@@ -463,7 +464,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(197)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(61)))), ((int)(((byte)(78)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(828, 529);
@@ -503,6 +504,7 @@
             this.Controls.Add(this.pictureBoxPeople);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
