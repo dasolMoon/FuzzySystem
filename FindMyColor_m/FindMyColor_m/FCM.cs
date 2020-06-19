@@ -13,14 +13,14 @@ namespace FindMyColor_m
         static int CLUSTER = 4; //클러스터 개수
         static int INPUT_TYPE = 3; //입력 데이터중 한 쌍이 되는 데이터의 개수
         static int M = 2;// 지수의 가중치 
-        static double THRESHOLD = 0.0002;
+        static double THRESHOLD = 0.0002; // 임계값
 
         //입력데이터
         double[,] inputData = null;
         int dataCount = 0; //입력 데이터의 갯수
 
         //전체 입력데이터의 소속함수
-        double[,] u = null;//, uFuzzy=null;
+        double[,] u = null;
         double[,] lastU = null;
 
 
@@ -86,10 +86,10 @@ namespace FindMyColor_m
         }
 
         private void SetNewU()//새로운 소속행렬 구성
-        {
+        {  //가중치 임시저장
             double[,] didtanceWeight = new double[dataCount, CLUSTER];
 
-            /* new weight */
+            //가중치값 업데이트
             for (int i = 0; i < CLUSTER; i++)
             {
                 for (int j = 0; j < dataCount; j++)
@@ -101,7 +101,7 @@ namespace FindMyColor_m
 
                     didtanceWeight[j, i] = 1 / didtanceWeight[j, i];
 
-                    if (didtanceWeight[j, i].Equals(double.NaN))
+                    if (didtanceWeight[j, i].Equals(double.NaN)) //0으로 나눠, 값이 숫자가 아니게 될경우
                     {
                         didtanceWeight[j, i] = 1;
                     }
@@ -118,7 +118,7 @@ namespace FindMyColor_m
                         wsum += didtanceWeight[i, k];
                     }
 
-                    u[i, j] = (didtanceWeight[i, j] / wsum);
+                    u[i, j] = (didtanceWeight[i, j] / wsum);  //가중치 업데이트
                 }
             }
         }
