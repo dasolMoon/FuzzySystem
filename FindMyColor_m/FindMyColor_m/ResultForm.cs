@@ -107,11 +107,6 @@ namespace FindMyColor_m
             double toneS = skinColor_hsl[1];
             double toneV = skinColor_hsl[2];
 
-            //double toneV = skinColor_hsv[1];
-            //double toneV = skinColor_hsv[2];
-
-
-
             // 웜톤, 쿨톤 구분
             if (toneY*100 >= 18.5) 
             {
@@ -170,11 +165,11 @@ namespace FindMyColor_m
             {
                 tempType = "쿨(Cool)";
                 picTemp.Image = Properties.Resources.쿨;
-                if(toneS >= 0.25)
+                if(toneS >= 0.16)
                 {
                     seasonType = "겨울(Winter)";
                     picSeason.Image = Properties.Resources.겨울;
-                    if (toneV >= 0.70)
+                    if (toneV >= 0.25)
                     {
                         lightType = "브라이트(Bright)";
                         pictureBox2.Image = Properties.Resources.겨울쿨브라이트;
