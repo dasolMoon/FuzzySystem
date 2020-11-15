@@ -165,7 +165,7 @@ namespace FindMyColor_m
             {
                 tempType = "쿨(Cool)";
                 picTemp.Image = Properties.Resources.쿨;
-                if(toneS >= 0.16)
+                if(toneS >= 0.14)
                 {
                     seasonType = "겨울(Winter)";
                     picSeason.Image = Properties.Resources.겨울;

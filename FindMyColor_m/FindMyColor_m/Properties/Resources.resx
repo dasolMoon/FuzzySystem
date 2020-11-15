@@ -193,6 +193,9 @@
   <data name="수동" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\수동.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="시작화면" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\시작화면.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="아이린" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\아이린.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

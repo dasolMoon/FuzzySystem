@@ -73,7 +73,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::FindMyColor_m.Properties.Resources.메인;
+            this.BackgroundImage = global::FindMyColor_m.Properties.Resources.시작화면;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(828, 559);
             this.Controls.Add(this.button2);
