@@ -34,8 +34,9 @@ namespace FindMyColor_m
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Github주소 복사 완료 \nSNS로 Find My Color를 공유해보세요 ! ", "Github주소 복사", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            System.Windows.Forms.Clipboard.SetText("https://github.com/dasolMoon/FuzzySystem.git");
+            MessageBox.Show("임시로 막아두었습니다. For 선바 ", "임시 차단 항목", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Github주소 복사 완료 \nSNS로 Find My Color를 공유해보세요 ! ", "Github주소 복사", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //System.Windows.Forms.Clipboard.SetText("https://github.com/dasolMoon/FuzzySystem.git");
         }
     }
 }
